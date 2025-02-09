@@ -4,8 +4,8 @@ form {
     flex-direction: column;
     align-items: flex-start;
     label {
-      color: #312e2e;
-      font-size: 36px;
+      color: $grey;
+      font-size: rem(36);
     }
   
     div {
