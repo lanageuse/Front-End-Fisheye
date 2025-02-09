@@ -65,6 +65,10 @@ header .logo {
   cursor: pointer;
 }
 
+#contact_modal {
+  display: none;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #db8876;
