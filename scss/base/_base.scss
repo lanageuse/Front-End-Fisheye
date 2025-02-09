@@ -6,4 +6,6 @@ body {
 h1 {
   color: $primary-color;
   margin-right: 100px;
+  font-size: rem(36);
+  font-weight: $font-normal;
 }
