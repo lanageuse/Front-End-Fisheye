@@ -1,0 +1,23 @@
+.profile{
+    text-align: center;
+    &__thumb{
+    }
+    &__name{
+        color: $secondary-color;
+        font-size: rem(36);
+        margin: 0;
+        font-weight: $font-normal;
+    }
+    &__location{
+        color: $primary-color;
+        font-size: rem(13);
+    }
+    &__description{
+        color: $black;
+        font-size: rem(10);
+    }
+    &__dailyRate{
+        color:$grey-light;
+        font-size: rem(9);
+    }
+}
