@@ -1,6 +1,29 @@
-
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  padding: 0 rem(50);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__name {
+    color: $secondary-color;
+    font-size: rem(64);
+    margin: 0;
+    font-weight: $font-normal;
+  }
+  &__location {
+    color: $primary-color;
+    font-size: rem(24);
+    margin: rem(20) 0;
+  }
+  &__description {
+    color: $black;
+    font-size: rem(18);
+  }
+  &__thumb{
+    img{
+      width:auto;
+    }
+  }
 }
