@@ -9,6 +9,10 @@
     background-color: $primary-color;
     border-radius: 5px;
     cursor: pointer;
+    &.btn-secondary{
+      color: $black;
+      background-color: $secondary-color;  
+    }
   }
 
   
