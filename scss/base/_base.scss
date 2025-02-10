@@ -41,6 +41,11 @@ i {
     content: $fi-chevron-up; 
   }
 }
+.fi-hearth {
+  &:before {
+    content: $fi-hearth; 
+  }
+}
 .fi-camera {
   &:before {
     content: $fi-camera; 
