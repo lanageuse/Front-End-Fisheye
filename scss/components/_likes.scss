@@ -1,0 +1,12 @@
+.likes{
+    display: flex;
+    align-items: center;
+    gap: rem(5);
+    color:$primary-color;
+    span{
+        font-size: rem(24);
+    }
+    .fi-hearth{
+        font-size: rem(20);
+    }
+}
