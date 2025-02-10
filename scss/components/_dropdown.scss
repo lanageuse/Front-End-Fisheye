@@ -16,6 +16,11 @@
   border: none;
   border-radius: $radius-sm;
   cursor: pointer;
+  i{
+    &.open{
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .dropdown-content {
