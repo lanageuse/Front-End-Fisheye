@@ -1,0 +1,17 @@
+.thumb{
+    max-width: rem(350);
+    &__img{
+        background-color: $grey-light;
+        min-height: 300px;
+        border-radius: $radius-sm;
+    }
+    &__details{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h3{
+            color:$primary-color;font-size: rem(24);
+            font-weight: $font-normal;
+        }
+    }
+}
