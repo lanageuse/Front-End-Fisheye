@@ -1,3 +1,8 @@
+* {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -8,6 +13,43 @@ h1 {
   margin-right: 100px;
   font-size: 2.25rem;
   font-weight: 400;
+}
+
+@font-face {
+  font-family: "fisheye";
+  src: url("../../assets/fonts/fisheye.ttf?ys1a6t") format("truetype"), url("../../assets/fonts/fisheye.woff?ys1a6t") format("woff"), url("../../assets/fonts/fisheye.svg?ys1a6t#fisheye") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "fisheye" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fi-chevron-down:before {
+  content: "\e900";
+}
+
+.fi-chevron-up:before {
+  content: "\e901";
+}
+
+.fi-hearth:before {
+  content: "\e903";
+}
+
+.fi-camera:before {
+  content: "\e902";
 }
 
 header {
@@ -48,10 +90,32 @@ header .logo {
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  padding: 0 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.photograph-header__name {
+  color: #d3573c;
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 400;
+}
+.photograph-header__location {
+  color: #901c1c;
+  font-size: 1.5rem;
+  margin: 1.25rem 0;
+}
+.photograph-header__description {
+  color: #000000;
+  font-size: 1.125rem;
+}
+.photograph-header__thumb img {
+  width: auto;
 }
 
 .contact_button {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   color: white;
   padding: 11px;
@@ -61,6 +125,11 @@ header .logo {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+.contact_button:hover, .contact_button:focus {
+  color: #000000;
+  background-color: #d3573c;
 }
 
 #contact_modal {
@@ -83,7 +152,7 @@ header .logo {
   width: 100%;
 }
 .modal header h2 {
-  font-size: 64px;
+  font-size: 4rem;
   font-weight: normal;
   text-align: center;
 }
@@ -98,8 +167,8 @@ form {
   align-items: flex-start;
 }
 form label {
-  color: #312e2e;
-  font-size: 36px;
+  color: #312E2E;
+  font-size: 2.25rem;
 }
 form div {
   display: flex;
@@ -113,6 +182,103 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 170px;
+}
+
+.dropbtn {
+  display: flex;
+  justify-content: space-between;
+  background-color: #901c1c;
+  color: white;
+  padding: 24px 20px;
+  font-size: 1.125rem;
+  text-align: left;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.dropbtn i.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  padding: 0 10px;
+  border-radius: 0 0 5px 5px;
+  background-color: #901c1c;
+  z-index: 1;
+  transform: translateY(-5px);
+}
+.dropdown-content a {
+  color: white;
+  font-size: 1.125rem;
+  padding: 12px 16px;
+  border-top: 1px solid white;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content.show {
+  display: block;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+  color: #901c1c;
+}
+.likes span {
+  font-size: 1.5rem;
+}
+.likes .fi-hearth {
+  font-size: 1.25rem;
+}
+
+.thumb {
+  max-width: 21.875rem;
+}
+.thumb__img {
+  background-color: #757575;
+  min-height: 300px;
+  border-radius: 5px;
+}
+.thumb__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.thumb__details h3 {
+  color: #901c1c;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.profile {
+  text-align: center;
+}
+.profile__name {
+  color: #d3573c;
+  font-size: 2.25rem;
+  margin: 0;
+  font-weight: 400;
+}
+.profile__location {
+  color: #901c1c;
+  font-size: 0.8125rem;
+}
+.profile__description {
+  color: #000000;
+  font-size: 0.625rem;
+}
+.profile__dailyRate {
+  color: #757575;
+  font-size: 0.5625rem;
 }
 
 /*# sourceMappingURL=main.css.map */
