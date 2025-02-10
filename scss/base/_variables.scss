@@ -2,8 +2,18 @@
 $font-family: "DM Sans", sans-serif;
 $font-normal : 400;
 $font-bold : 800;
+// font icon
+$icomoon-font-family: "fisheye" !default;
+$icomoon-font-path: "../../assets/fonts" !default;
+
+$fi-chevron-down: unquote('"\\e900"');
+$fi-chevron-up: unquote('"\\e901"');
+$fi-camera: unquote('"\\e902"');
 // Colors
 $primary-color: #901c1c;
-$secondary-color: #db8876;
+$secondary-color: #d3573c;
+$grey : #312E2E;
+// boder-radius
+$radius-sm : 5px;
 
 
