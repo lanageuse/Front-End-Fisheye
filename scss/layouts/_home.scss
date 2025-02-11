@@ -3,22 +3,4 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin-top: 100px;
-
-  article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  article h2 {
-    color: $secondary-color;
-    font-size: 36px;
-  }
-
-  article img {
-    height: 200px;
-    width: 200px;
-  }
 }

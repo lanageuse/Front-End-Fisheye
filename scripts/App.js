@@ -1,6 +1,6 @@
 import Api from './api/Api.js' 
 import Photograph from './models/photograph.js'
-import CardProfil from './views/CardProfil.js'
+import CardProfile from './views/CardProfile.js'
 
 class App{
     constructor(){
@@ -18,7 +18,7 @@ class App{
 
     async displayProfil(){
         this.photographers.map(data =>{
-            const Template = new CardProfil(data)
+            const Template = new CardProfile(data)
             this.$dataWrapper.appendChild(Template.createCard())
         })
     }

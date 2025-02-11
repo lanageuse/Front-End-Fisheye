@@ -1,6 +1,6 @@
 import Photograph from "../models/photograph.js"
 
-class CardProfil extends Photograph{
+class CardProfile extends Photograph{
     constructor(data){
         super(data)
         this.$wrapper = document.createElement('article')
@@ -9,7 +9,7 @@ class CardProfil extends Photograph{
 
     createCard(){
         const card = `
-        <img src="././assets/photographers/${this.portrait}" class="thumb" alt="Photographe ${this.name}">
+        <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="Photographe ${this.name}">
         <h2 class="profile__name">${this.name}</h2>
         <p class="profile__location">${this.city}, ${this.country}</p>
         <p class="profile__description">${this.tagline}</p>
@@ -20,4 +20,4 @@ class CardProfil extends Photograph{
     }
 
 }
-export default CardProfil
+export default CardProfile
