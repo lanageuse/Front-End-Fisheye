@@ -1,0 +1,20 @@
+.contact_button {
+    font-size: rem(20);
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: $primary-color;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+    &:hover,
+    &:focus{
+      color: $black;
+      background-color: $secondary-color;  
+    }
+  }
+
+  

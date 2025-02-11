@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <main id="main">
+    <h3>Input</h3>
+    <form class="bg-secondary">
+      <label>Prénom</label>
+      <input />
+    </form>
+    <hr>
+    <h3>Dropdown</h3>
+    <div class="dropdown">
+      <button class="dropbtn">Popularité <i class="fi-chevron-down"></i></button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#">Date</a>
+        <a href="#">Titre</a>
+      </div>
+    </div>
+    <hr>
+    <h3>Button</h3>
+    <div>
+      <button class="contact_button">Envoyer</button>
+      <button class="btn-secondary contact_button">Envoyer</button>
+    </div>
+    <hr>
+    <h3>Composant likes</h3>
+    <div class="likes">
+      <span>12</span><i class="fi-hearth"></i>
+    </div>
+    <hr>
+    <h3>Composant Image full</h3>
+    <article class="thumb">
+      <div class="thumb__img"></div>
+      <div class="thumb__details">
+        <h3>Photo</h3>
+        <div class="likes">
+          <span>12</span><i class="fi-hearth"></i>
+        </div>
+      </div>
+    </article>
+    <hr>
+    <h3>Profile</h3>
+    <article class="profile">
+      <img src="././assets/photographers/account.png" class="thumb" alt="">
+      <h2 class="profile__name">Kold Barkley</h2>
+      <p class="profile__location">Auckland, New Zealand</p>
+      <p class="profile__description">Voir le beau dans les choses du quotidien</p>
+      <p class="profile__dailyRate">400€/jour</p>
+    </article>
+    <hr>
+    <h3>Header photographe</h3>
+    <div class="photograph-header">
+      <div class="photograph-header__details">
+        <h2 class="photograph-header__name">Kold Barkley</h2>
+        <p class="photograph-header__location">Auckland, New Zealand</p>
+        <p class="photograph-header__description">Voir le beau dans les choses du quotidien</p>
+      </div>
+      <div class="photograph-header__contact"><button class="contact_button" onclick="displayModal()">Contactez-moi</button></div>
+      <div class="photograph-header__thumb">
+        <img src="././assets/photographers/account.png" alt="">
+      </div>
+    </div>
+  </main>
+  <script>
+    function dropdown(){
+      const $dropdown = document.querySelector('.dropdown')
+      const $icon = document.querySelector('.dropbtn i.fi-chevron-down')
+      const $dropContent = document.getElementById('myDropdown')
+        $dropdown.addEventListener("click", (e)=>{
+          $dropContent.classList.toggle('show')
+          $icon.classList.toggle('open')
+      })
+    }
+    dropdown()
+  </script>
+</body>
+
+</html>
