@@ -252,8 +252,8 @@ form input {
   align-items: center;
   flex-direction: column;
 }
-.profile:hover {
-  cursor: pointer;
+.profile a {
+  text-decoration: none;
 }
 .profile__thumb {
   width: 12.5rem;

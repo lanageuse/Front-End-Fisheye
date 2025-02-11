@@ -5,8 +5,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  &:hover{
-    cursor: pointer;
+  a {
+    text-decoration: none;
   }
   &__thumb {
     width: rem(200);

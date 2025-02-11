@@ -9,11 +9,13 @@ class CardProfile extends Photograph{
 
     createCard(){
         const card = `
+        <a href="photographer.html?id=${this.id}">
         <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="Photographe ${this.name}">
         <h2 class="profile__name">${this.name}</h2>
         <p class="profile__location">${this.city}, ${this.country}</p>
         <p class="profile__description">${this.tagline}</p>
         <p class="profile__dailyRate">${this.price}€/jour</p>
+        </a>
         `
         this.$wrapper.innerHTML = card
         return this.$wrapper
