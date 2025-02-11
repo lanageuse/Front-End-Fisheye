@@ -70,21 +70,6 @@ header .logo {
   gap: 70px;
   margin-top: 100px;
 }
-.photographer_section article {
-  justify-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.photographer_section article h2 {
-  color: #d3573c;
-  font-size: 36px;
-}
-.photographer_section article img {
-  height: 200px;
-  width: 200px;
-}
 
 .photograph-header {
   background-color: #fafafa;
@@ -200,7 +185,7 @@ form input {
   font-size: 1.125rem;
   text-align: left;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
 }
 .dropbtn i.open {
@@ -210,7 +195,7 @@ form input {
 .dropdown-content {
   display: none;
   padding: 0 10px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 0.3125rem 0.3125rem;
   background-color: #901c1c;
   z-index: 1;
   transform: translateY(-5px);
@@ -246,7 +231,7 @@ form input {
 .thumb__img {
   background-color: #757575;
   min-height: 300px;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 .thumb__details {
   display: flex;
@@ -261,6 +246,21 @@ form input {
 
 .profile {
   text-align: center;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile:hover {
+  cursor: pointer;
+}
+.profile__thumb {
+  width: 12.5rem;
+  height: 12.5rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6.25rem;
 }
 .profile__name {
   color: #d3573c;
