@@ -1,6 +1,6 @@
 import Api from '../api/Api.js' 
 import Photograph from '../models/photograph.js'
-import CardProfile from '../views/CardProfile.js'
+import CardProfile from '../templates/CardProfile.js'
 
 class Index{
     constructor(){
@@ -16,7 +16,7 @@ class Index{
         return this.photographers
     }
 
-    async displayProfile(){
+    async displayProfiles(){
         this.photographers.map(data =>{
             const Template = new CardProfile(data)
             this.$dataWrapper.appendChild(Template.createCard())
@@ -24,7 +24,7 @@ class Index{
     }
     async main(){
         await this.fetchData()
-        await this.displayProfile()   
+        await this.displayProfiles()   
     }
 }
 
