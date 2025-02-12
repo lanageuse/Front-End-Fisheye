@@ -1,6 +1,5 @@
 * {
   font-family: "DM Sans", sans-serif;
-  font-size: 16px;
 }
 
 body {
@@ -94,9 +93,6 @@ header .logo {
 .photograph-header__description {
   color: #000000;
   font-size: 1.125rem;
-}
-.photograph-header__thumb img {
-  width: auto;
 }
 
 .contact_button {
@@ -218,6 +214,9 @@ form input {
   gap: 0.3125rem;
   color: #901c1c;
 }
+.likes:hover {
+  cursor: pointer;
+}
 .likes span {
   font-size: 1.5rem;
 }
@@ -225,13 +224,43 @@ form input {
   font-size: 1.25rem;
 }
 
-.thumb {
-  max-width: 21.875rem;
+.thumb figure {
+  margin: 0;
 }
 .thumb__img {
-  background-color: #757575;
-  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
   border-radius: 0.3125rem;
+  transition: all ease-in-out 0.3s;
+}
+.thumb__img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.thumb__img img {
+  display: block;
+  width: 100%;
+  max-height: 21.875rem;
+  min-height: 21.875rem;
+  object-fit: cover;
+  object-position: center;
+}
+.thumb__video {
+  max-height: 21.875rem;
+  min-height: 21.875rem;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3125rem;
+}
+.thumb__video video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 .thumb__details {
   display: flex;
@@ -241,6 +270,7 @@ form input {
 .thumb__details h3 {
   color: #901c1c;
   font-size: 1.5rem;
+  margin: 0.625rem 0;
   font-weight: 400;
 }
 
@@ -279,6 +309,40 @@ form input {
 .profile__dailyRate {
   color: #757575;
   font-size: 0.5625rem;
+}
+
+.gallery-container {
+  margin: 3.125rem 6.25rem;
+}
+.gallery-container .gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 4.375rem;
+  row-gap: 1.25rem;
+}
+
+.widget {
+  background-color: #d3573c;
+  border-radius: 0.3125rem 0.3125rem 0 0;
+  position: fixed;
+  bottom: 0;
+  right: 2%;
+  min-width: 23.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem;
+  transform: translateY(60px);
+  transition: transform ease-in-out 0.6s;
+}
+.widget.show {
+  transform: translateY(0);
+}
+.widget__likes {
+  color: #000000;
+}
+.widget__daily_rate {
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */
