@@ -1,0 +1,51 @@
+.thumb{
+    figure{
+        margin: 0;
+    }
+    &__img{
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+        border-radius: $radius-sm;
+        transition: all ease-in-out 0.3s;
+        &:hover{
+            transform: scale(1.03);
+            box-shadow: 0 3px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        img{
+            display: block;
+            width:100%;
+            max-height: rem(350);
+            min-height: rem(350);
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    &__video{
+        max-height: rem(350);
+        min-height: rem(350);
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: $radius-sm;
+        video{
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    &__details{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h3{
+            color:$primary-color;
+            font-size: rem(24);
+            margin: rem(10) 0;
+            font-weight: $font-normal;
+        }
+    }
+}
