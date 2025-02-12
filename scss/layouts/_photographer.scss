@@ -6,20 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  &__details{
-    flex:2;
-  }
-  &__contact{
-    flex:1;
-    display: flex;
-    justify-content: center;
-  }
-  &__thumb{
-    flex:1;
-    display: flex;
-    justify-content: flex-end;
-  }
-
   &__name {
     color: $secondary-color;
     font-size: rem(64);
