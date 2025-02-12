@@ -3,6 +3,9 @@
     align-items: center;
     gap: rem(5);
     color:$primary-color;
+    &:hover{
+        cursor: pointer;
+    }
     span{
         font-size: rem(24);
     }
