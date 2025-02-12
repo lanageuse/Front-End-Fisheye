@@ -5,13 +5,13 @@ import CardProfile from '../templates/CardProfile.js'
 class Index{
     constructor(){
         this.photographers = []
-        this.dataApi = new Api('./data/photographers.json', 'photographers')
+        this.dataApi = new Api('./data/photographers.json')
         this.$wrapper = document.getElementById('main')
         this.$dataWrapper = document.querySelector('.photographer_section')
     }
 
     async fetchData(){
-        const photographers  = await this.dataApi.get()
+        const {photographers, media}  = await this.dataApi.get()
         this.photographers = photographers.map(photograph => new Photograph(photograph))
         return this.photographers
     }
