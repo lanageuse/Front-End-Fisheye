@@ -3,7 +3,6 @@ import Photograph from "../models/photograph.js"
 class HeaderProfile extends Photograph {
     constructor(data) {
         super(data)
-        this.$wrapper = document.querySelector('.photograph-header')
     }
 
     createCard() {
@@ -18,9 +17,8 @@ class HeaderProfile extends Photograph {
         <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="Photographe ${this.name}">
       </div>
         `
-        this.$wrapper.innerHTML = header
-        return this.$wrapper
+        return header
     }
-
+    
 }
 export default HeaderProfile
