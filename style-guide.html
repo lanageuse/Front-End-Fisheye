@@ -36,9 +36,11 @@
       <span>12</span><i class="fi-hearth"></i>
     </div>
     <hr>
-    <h3>Composant Image full</h3>
+    <h3>Composant Media</h3>
     <article class="thumb">
-      <div class="thumb__img"></div>
+      <figure class="thumb__img">
+        <img src="./assets/photographers/MarcelNikolic.jpg" alt="">
+      </figure>
       <div class="thumb__details">
         <h3>Photo</h3>
         <div class="likes">
@@ -69,6 +71,14 @@
       </div>
     </div>
   </main>
+  <aside class="widget">
+    <div class="widget__likes likes">
+      <span>12</span><i class="fi-hearth"></i>
+    </div>
+    <div class="widget__daily_rate" id="daily-rate">
+      <span class="price">300</span>€ / jour
+    </div>
+  </aside>
   <script>
     function dropdown(){
       const $dropdown = document.querySelector('.dropdown')
