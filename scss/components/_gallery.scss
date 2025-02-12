@@ -1,0 +1,9 @@
+.gallery-container{
+    margin: rem(50) rem(100);
+    .gallery{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: rem(70);
+        row-gap: rem(20);
+    }
+}
