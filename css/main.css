@@ -217,6 +217,9 @@ form input {
 .likes:hover {
   cursor: pointer;
 }
+.likes.liked {
+  color: #d3573c;
+}
 .likes span {
   font-size: 1.5rem;
 }
