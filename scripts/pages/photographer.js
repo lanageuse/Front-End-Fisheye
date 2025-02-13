@@ -60,6 +60,7 @@ class PhotographerPage {
 
         handleFilter(this.gallery, (sortedGallery) => this.displayGallery(sortedGallery))
         
+        displayLightbox(this.gallery, this.profile)
     }
 }
 
