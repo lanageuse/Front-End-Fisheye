@@ -98,9 +98,9 @@ header .logo {
 .contact_button {
   font-size: 1.25rem;
   font-weight: bold;
-  color: white;
+  color: #ffffff;
   padding: 11px;
-  width: 170px;
+  width: 12.5rem;
   height: 70px;
   border: none;
   background-color: #901c1c;
@@ -199,47 +199,74 @@ form .formData[data-error-visible=true] .text-control {
   border: 2px solid #d40808;
 }
 
-.dropdown {
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 1.5625rem;
+  margin: 3.125rem 6.25rem;
+}
+.filter__title {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.filter__dropdown {
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 170px;
+  z-index: 2;
 }
-
-.dropbtn {
+.filter__dropdown .dropbtn {
   display: flex;
   justify-content: space-between;
+  gap: 0.625rem;
+  min-width: 10rem;
   background-color: #901c1c;
-  color: white;
-  padding: 24px 20px;
+  color: #ffffff;
+  font-weight: 700;
   font-size: 1.125rem;
-  text-align: left;
+  padding: 24px 20px;
   border: none;
   border-radius: 0.3125rem;
   cursor: pointer;
+  z-index: 1;
 }
-.dropbtn i.open {
+.filter__dropdown .dropbtn i {
+  transition: transform ease-in-out 0.3s;
+}
+.filter__dropdown .dropbtn i.open {
+  position: relative;
+  top: 0.3125rem;
   transform: rotate(180deg);
 }
-
-.dropdown-content {
-  display: none;
-  padding: 0 10px;
+.filter__dropdown .dropdown-content {
+  display: flex;
+  visibility: hidden;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: column;
+  padding: 0.3125rem 0.625rem;
   border-radius: 0 0 0.3125rem 0.3125rem;
   background-color: #901c1c;
   z-index: 1;
-  transform: translateY(-5px);
+  transform: translateY(5px);
+  transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.2s;
+  z-index: -1;
 }
-.dropdown-content a {
-  color: white;
+.filter__dropdown .dropdown-content.show {
+  visibility: visible;
+  transform: translateY(68px);
+}
+.filter__dropdown .dropdown-content button {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  color: #ffffff;
   font-size: 1.125rem;
+  text-align: left;
   padding: 12px 16px;
   border-top: 1px solid white;
   text-decoration: none;
-  display: block;
-}
-.dropdown-content.show {
-  display: block;
 }
 
 .likes {
@@ -282,7 +309,7 @@ form .formData[data-error-visible=true] .text-control {
   max-height: 21.875rem;
   min-height: 21.875rem;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
 }
 .thumb__video {
   max-height: 21.875rem;
