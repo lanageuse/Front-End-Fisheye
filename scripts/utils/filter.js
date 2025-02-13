@@ -42,6 +42,7 @@ export const handleFilter = (gallery, updateDisplay) => {
 
             updateDisplay(sortedGallery);
             handleLikes()
+            displayLightbox(sortedGallery)
         });
     });
 };
