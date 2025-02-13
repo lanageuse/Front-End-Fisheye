@@ -1,12 +1,10 @@
-import FactoryMedia from "../factories/FactoryMedia.js"
 class Gallery {
     constructor(medias, photographer) {
         this.photographer = photographer
         this.medias = medias
     }
 
-    getFolderName() {
-        const name = this.photographer.name
+    static getFolderName(name) {
         return name
             .replace(/[-_]/g, ' ')
             .trim()
@@ -20,13 +18,13 @@ class Gallery {
         <section class="gallery">
         ${this.medias.map(media => {
             const renderMedia = media.image ?
-                ` <figure class="thumb__img">
-              <img src="./assets/images/${this.getFolderName()}/${media.image}" alt="">
+                ` <figure class="thumb__img" data-id="${media.id}">
+              <img src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/${media.image}" alt="">
             </figure>`
                 :
-                ` <figure class="thumb__video">
+                ` <figure class="thumb__video" data-id="${media.id}">
                     <video controls width="350">
-                    <source src="./assets/images/${this.getFolderName()}/${media.video}" type="video/mp4" />
+                    <source src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/${media.video}" type="video/mp4" />
                     </video>
                 </figure>`
             return `
