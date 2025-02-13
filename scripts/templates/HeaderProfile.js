@@ -12,7 +12,7 @@ class HeaderProfile extends Photograph {
         <p class="photograph-header__location">${this.city}, ${this.country}</p>
         <p class="photograph-header__description">${this.tagline}</p>
       </div>
-      <div class="photograph-header__contact"><button class="contact_button" onclick="displayModal()">Contactez-moi</button></div>
+      <div class="photograph-header__contact"><button class="contact_button">Contactez-moi</button></div>
       <div class="photograph-header__thumb">
         <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="Photographe ${this.name}">
       </div>
