@@ -2,6 +2,7 @@ import Api from '../api/Api.js'
 import Photograph from '../models/photograph.js'
 import HeaderProfile from '../templates/HeaderProfile.js'
 import Gallery from '../templates/Gallery.js'
+import { handleLikes } from '../utils/likes.js'
 
 class PhotographerPage {
     constructor(id) {
@@ -45,6 +46,7 @@ class PhotographerPage {
         await this.getMedias()
         await this.displayGallery()
         .then( setTimeout(() => this.$wrapperWidget.classList.add('show'), 1000) )
+        await handleLikes()
     }
 
 }
