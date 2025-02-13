@@ -3,6 +3,8 @@ import Photograph from '../models/photograph.js'
 import HeaderProfile from '../templates/HeaderProfile.js'
 import Gallery from '../templates/Gallery.js'
 import { handleLikes } from '../utils/likes.js'
+import openCloseModal from '../utils/modal.js'
+import contactForm from '../utils/contactForm.js'
 
 class PhotographerPage {
     constructor(id) {
@@ -47,6 +49,8 @@ class PhotographerPage {
         await this.displayGallery()
         .then( setTimeout(() => this.$wrapperWidget.classList.add('show'), 1000) )
         await handleLikes()
+        openCloseModal()
+        contactForm()
     }
 
 }
