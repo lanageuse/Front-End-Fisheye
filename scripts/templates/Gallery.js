@@ -34,8 +34,8 @@ class Gallery {
                 ${renderMedia}
                 <div class="thumb__details">
                     <h3>${media.title}</h3>
-                    <div class="likes">
-                    <span>${media.likes}</span><i class="fi-hearth"></i>
+                    <div class="likes handleLikes">
+                    <span class="count">${media.likes}</span><i class="fi-hearth"></i>
                     </div>
                 </div>
             </article>
@@ -55,7 +55,7 @@ class Gallery {
     createWidget() {
         const widget = `
             <div class="widget__likes likes">
-            <span>${this.getCountLikes()}</span><i class="fi-hearth"></i>
+            <span class="total-likes">${this.getCountLikes()}</span><i class="fi-hearth"></i>
             </div>
             <div class="widget__daily_rate" id="daily-rate">
             <span class="price">${this.photographer.price}</span> € / jour
