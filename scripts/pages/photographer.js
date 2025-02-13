@@ -5,7 +5,11 @@ import Gallery from '../templates/Gallery.js'
 import { handleLikes } from '../utils/likes.js'
 import openCloseModal from '../utils/modal.js'
 import {contactForm} from '../utils/contactForm.js'
+import {handleFilter} from '../utils/filter.js'
+import { displayLightbox } from '../utils/lightbox.js'
 
+const params = new URLSearchParams(document.location.search);
+const photographId = params.get("id");
 class PhotographerPage {
     constructor(id) {
         this.id = Number(id) || 'undefined'
@@ -29,14 +33,14 @@ class PhotographerPage {
         const Template = new HeaderProfile(this.profile)
         this.$wrapperProfile.innerHTML = Template.createCard()
     }    
-    async getMedias() {
+    async getGallery() {
         const {photographers, media}= await this.api.get()
         this.gallery = media.filter(media => media.photographerId === this.id)
         return this.gallery
     }
-     async displayGallery(){
+     async displayGallery(sortedGallery = null){
         const photograph = this.profile
-        const medias = this.gallery
+        const medias = sortedGallery || this.gallery
         const Template = new Gallery(medias, photograph)
         this.$wrapperGallery.innerHTML = Template.createGallery()
         this.$wrapperWidget.innerHTML = Template.createWidget()
@@ -45,17 +49,19 @@ class PhotographerPage {
     async main() {
         await this.getProfile()
         await this.displayProfile()
-        await this.getMedias()
-        await this.displayGallery()
-        .then( setTimeout(() => this.$wrapperWidget.classList.add('show'), 1000) )
-        await handleLikes()
-        openCloseModal()
-        contactForm()
-    }
+        
+        await this.getGallery()
+        await this.displayGallery().then( setTimeout(() => this.$wrapperWidget.classList.add('show'), 1000) )
 
+        await handleLikes()
+        
+        openCloseModal()
+        contactForm();
+
+        handleFilter(this.gallery, (sortedGallery) => this.displayGallery(sortedGallery))
+        
+    }
 }
 
-const params = new URLSearchParams(document.location.search);
-const photographId = params.get("id");
 const app = new PhotographerPage(photographId)
 app.main()
