@@ -1,7 +1,10 @@
 #contact_modal {
-    display: none;
-  }
-.modal {
+  display: none;
+  position: absolute;
+  top: 10vh;
+  width: 100%;
+
+  .modal {
     border-radius: 5px;
     background-color: #db8876;
     width: 50%;
@@ -23,4 +26,12 @@
         }
       }
     }
+    .form-success {
+      display: none;
+      background-color: $sucess-color;
+      padding: rem(20);
+      color: $white;
+      border-radius: $radius-sm;
+    }
   }
+}
