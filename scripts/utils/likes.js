@@ -13,9 +13,15 @@ export const handleLikes = async () => {
             let likeCount = 0
             btn.classList.toggle('liked')
             const likeWrapper = btn.querySelector('.count')
-            likeCount = Number( likeWrapper.getHTML())
-            likeWrapper.textContent = btn.classList.contains('liked') ? likeCount + 1 : likeCount - 1  
-            btn.classList.contains('liked') ? EventLikes.notify('INC') : EventLikes.notify('DEC')
+            likeCount = Number( likeWrapper.textContent)
+            if(btn.classList.contains('liked')){
+                likeCount = likeCount + 1
+                EventLikes.notify("INC")
+            }else{
+                likeCount = likeCount - 1
+                EventLikes.notify("DEC")
+            }
+            likeWrapper.textContent = likeCount
         })
     })
 }
