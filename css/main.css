@@ -115,9 +115,11 @@ header .logo {
 
 #contact_modal {
   display: none;
+  position: absolute;
+  top: 10vh;
+  width: 100%;
 }
-
-.modal {
+#contact_modal .modal {
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
@@ -128,17 +130,24 @@ header .logo {
   padding: 35px;
   margin: auto;
 }
-.modal header {
+#contact_modal .modal header {
   justify-content: space-between;
   width: 100%;
 }
-.modal header h2 {
+#contact_modal .modal header h2 {
   font-size: 4rem;
   font-weight: normal;
   text-align: center;
 }
-.modal header h2 img {
+#contact_modal .modal header h2 img {
   cursor: pointer;
+}
+#contact_modal .modal .form-success {
+  display: none;
+  background-color: #3fa83f;
+  padding: 1.25rem;
+  color: #ffffff;
+  border-radius: 0.3125rem;
 }
 
 form {
@@ -159,10 +168,35 @@ form div {
   margin-bottom: 26px;
 }
 form input {
+  font-size: 2.25rem;
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+form textarea {
+  font-size: 2.25rem;
+  width: 100%;
+  height: 168px;
+  border: none;
+  border-radius: 5px;
+}
+form .formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 1rem;
+  color: #d40808;
+  display: block;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+form .formData[data-error-visible=true]::after {
+  opacity: 1;
+}
+form .formData[data-error-visible=true] .text-control {
+  border: 2px solid #d40808;
 }
 
 .dropdown {
