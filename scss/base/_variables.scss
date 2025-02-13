@@ -13,9 +13,12 @@ $fi-camera: unquote('"\\e902"');
 // Colors
 $primary-color: #901c1c;
 $secondary-color: #d3573c;
+$error-color:#d40808;
+$sucess-color:#3fa83f;
 $grey : #312E2E;
 $grey-light : #757575;
 $black : #000000;
+$white : #ffffff;
 // boder-radius
 $radius-sm : rem(5);
 $radius-xl : rem(100);
