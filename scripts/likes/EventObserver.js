@@ -11,8 +11,8 @@ class EventObserver {
         this._observers = this._observers.filter(obs => obs !== observer)
     }
 
-    notify(action) {
-        this._observers.forEach(observer => observer.update(action))
+    notify(action, data = []) {
+        this._observers.forEach(observer => observer.update(action, data))
     }
 }
 export default EventObserver
