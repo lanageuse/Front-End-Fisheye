@@ -23,7 +23,7 @@ class Gallery {
             </figure>`
                 :
                 ` <figure class="thumb__video" data-id="${media.id}">
-                    <video controls width="350">
+                    <video>
                     <source src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/${media.video}" type="video/mp4" />
                     </video>
                 </figure>`
@@ -32,7 +32,7 @@ class Gallery {
                 ${renderMedia}
                 <div class="thumb__details">
                     <h3>${media.title}</h3>
-                    <div class="likes handleLikes">
+                    <div class="likes handleLikes" data-id="${media.id}">
                     <span class="count">${media.likes}</span><i class="fi-hearth"></i>
                     </div>
                 </div>
