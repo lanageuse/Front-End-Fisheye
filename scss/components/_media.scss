@@ -31,6 +31,12 @@
         justify-content: center;
         align-items: center;
         border-radius: $radius-sm;
+        transition: all ease-in-out 0.3s;
+        &:hover{
+            transform: scale(1.03);
+            box-shadow: 0 3px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
         video{
             display: block;
             max-width: 100%;
