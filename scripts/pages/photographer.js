@@ -7,6 +7,7 @@ import openCloseModal from '../utils/modal.js'
 import { contactForm } from '../utils/contactForm.js'
 import { handleFilter } from '../utils/filter.js'
 import { displayLightbox } from '../utils/lightbox.js'
+import { videoHover } from '../utils/video.js'
 
 const params = new URLSearchParams(document.location.search);
 const photographId = params.get("id");
@@ -73,6 +74,7 @@ class PhotographerPage {
         handleFilter(this.gallery, (sortedGallery) => this.displayGallery(sortedGallery), this.profile)
 
         displayLightbox(this.gallery, this.profile)
+        videoHover()
     }
 }
 
