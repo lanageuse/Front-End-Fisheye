@@ -19,7 +19,7 @@ class Gallery {
         ${this.medias.map(media => {
             const renderMedia = media.image ?
                 ` <figure class="thumb__img" data-id="${media.id}">
-              <img src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/${media.image}" alt="">
+              <img src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/thumbs/${media.image}" alt="">
             </figure>`
                 :
                 ` <figure class="thumb__video" data-id="${media.id}">
