@@ -34,6 +34,7 @@ class PhotographerPage {
     async displayProfile() {
         const Template = new HeaderProfile(this.profile)
         this.$wrapperProfile.innerHTML = Template.createCard()
+        document.title = Template.updateTitle()
     }
     async getGallery() {
         if (this.dataLocal) {
