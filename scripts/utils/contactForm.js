@@ -94,14 +94,17 @@ const submitForm = () => form.addEventListener("submit", (e) => {
 const ErrorMessage = (errorMessage, field) => {
     // Sélectionne le conteneur parent du champ spécifié
     const showMessage = document.querySelector(`[name="${field}"]`).parentElement;
+    const InputError = document.querySelector(`[name="${field}"]`);
     if (errorMessage) {
         // Affiche le message d'erreur en tant qu'attribut et marque l'erreur comme visible
         showMessage.setAttribute('data-error', errorMessage);
         showMessage.setAttribute('data-error-visible', true);
+        InputError.setAttribute('aria-invalid', true);
     } else {
         // Supprime les attributs liés à l'erreur si le champ est valide
         showMessage.removeAttribute('data-error');
         showMessage.removeAttribute('data-error-visible');
+        InputError.setAttribute('aria-invalid', false);
     }
 };
 
