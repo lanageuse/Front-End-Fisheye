@@ -16,11 +16,15 @@
     margin: auto;
     header {
       justify-content: space-between;
+      align-items: flex-start;
       width: 100%;
+      height: auto;
       h2 {
         font-size: rem(64);
         font-weight: normal;
-        text-align: center;
+        text-align: left;
+        margin: 0;
+        align-self: self-start;
         img {
           cursor: pointer;
         }
