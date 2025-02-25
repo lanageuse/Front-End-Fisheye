@@ -1,24 +1,38 @@
 const openCloseModal = () => {
-    const modal = document.getElementById("contact_modal");
+    const $modal = document.getElementById("contact_modal");
+    const $modalTitle = document.getElementById("modalTitle");
+    const $mainWrapper = document.getElementById("main");
+    const $openModalBtn = document.querySelector('.contact_button')
+    const $closeModalBtn = document.querySelector('.close_modal')
 
     const openModal = () => {
-        document.querySelector('.contact_button')
-            .addEventListener("click", () => {
-                modal.style.display = 'block';
-                modal.setAttribute("aria-hidden", "false");
-            });
+        $modal.style.display = 'block';
+        $modal.setAttribute("aria-hidden", "false");
+        $mainWrapper.setAttribute("aria-hidden", "true");
+        $modalTitle.focus()
     };
 
     const closeModal = () => {
-        document.querySelector('.close_modal')
-            .addEventListener("click", () => {
-                modal.style.display = 'none';
-                modal.setAttribute("aria-hidden", "true"); 
-            });
+        $modal.style.display = 'none';
+        $modal.setAttribute("aria-hidden", "true");
+        $mainWrapper.setAttribute("aria-hidden", "false");
+        $openModalBtn.focus()
     };
 
-    openModal();
-    closeModal();
+    $openModalBtn.addEventListener("click", () => {
+        openModal();
+    })
+
+    $closeModalBtn.addEventListener("click", () => {
+        closeModal()
+    })
+
+    window.addEventListener("keydown", e => {
+        if ($modal.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') {
+            closeModal()
+        }
+    })
+
 };
 
 export default openCloseModal;
