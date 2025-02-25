@@ -21,16 +21,19 @@
     margin: 0;
     font-weight: $font-normal;
   }
+  p{
+    margin: rem(2) 0;
+  }
   &__location {
     color: $primary-color;
-    font-size: rem(13);
+    font-size: rem(16);
   }
   &__description {
     color: $black;
-    font-size: rem(10);
+    font-size: rem(13);
   }
   &__dailyRate {
     color: $grey-light;
-    font-size: rem(9);
+    font-size: rem(13);
   }
 }
