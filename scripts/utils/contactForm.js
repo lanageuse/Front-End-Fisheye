@@ -30,7 +30,8 @@ const validators = [
 /**
  * Ajoute un gestionnaire d'événement `input` pour valider chaque champ individuellement.
  */
-const handleForm = () => form.querySelectorAll("input").forEach((field) => {
+const inputForm = () => 
+    form.querySelectorAll("input").forEach((field) => {
     field.addEventListener("input", (e) => {
         const value = e.target.value; // Valeur actuelle du champ
         const fieldName = e.target.name; // Nom du champ (attribut `name`)
@@ -84,6 +85,12 @@ const submitForm = () => form.addEventListener("submit", (e) => {
 });
 
 
+const updateTitleForm = (photographer) => {
+    const $title = document.getElementById("modalTitle")
+    $title.innerHTML += `<br/> ${photographer.name}`
+}
+
+
 /**
  * Gère l'affichage des messages d'erreur pour un champ spécifique.
  * Ajoute ou supprime les attributs `data-error` et `data-error-visible` pour indiquer l'état de validation.
@@ -131,7 +138,8 @@ const showSucessMessage = (form) => {
     }, 2000);
 };
 
-export const contactForm = () => {
+export const contactForm = (photographer) => {
     submitForm()
-    handleForm()
+    inputForm()
+    updateTitleForm(photographer)
 }
