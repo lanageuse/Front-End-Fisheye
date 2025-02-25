@@ -1,20 +1,26 @@
-import Photograph from "../models/photograph.js"
+import Photograph from "../models/Photograph.js"
 
 class HeaderProfile extends Photograph {
     constructor(data) {
         super(data)
     }
 
+    updateTitle(){
+      return `Fisheye - Découvrez les créations de ${this.name}`
+  }
+
+
     createCard() {
         const header = `
         <div class="photograph-header__details">
-        <h2 class="photograph-header__name">${this.name}</h2>
-        <p class="photograph-header__location">${this.city}, ${this.country}</p>
-        <p class="photograph-header__description">${this.tagline}</p>
+        <h1 class="photograph-header__name"  tabindex="0">${this.name}</h1>
+        <p  class="photograph-header__location" tabindex="0">${this.city}, ${this.country}</p>
+        <p class="photograph-header__description"  tabindex="0">${this.tagline}</p>
       </div>
-      <div class="photograph-header__contact"><button class="contact_button">Contactez-moi</button></div>
-      <div class="photograph-header__thumb">
-        <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="Photographe ${this.name}">
+      <div class="photograph-header__contact"><button class="contact_button" aria-label="Bouton pour contacter ${this.name}">Contactez-moi</button>
+      </div>
+      <div class="photograph-header__thumb" tabindex="0">
+        <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="${this.name}">
       </div>
         `
         return header
