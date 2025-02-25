@@ -152,12 +152,16 @@ header .logo {
 }
 #contact_modal .modal header {
   justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
+  height: auto;
 }
 #contact_modal .modal header h2 {
   font-size: 4rem;
   font-weight: normal;
-  text-align: center;
+  text-align: left;
+  margin: 0;
+  align-self: self-start;
 }
 #contact_modal .modal header h2 img {
   cursor: pointer;
