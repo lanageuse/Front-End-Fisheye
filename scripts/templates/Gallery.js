@@ -19,7 +19,7 @@ class Gallery {
         ${this.medias.map(media => {
             const renderMedia = media.image ?
                 ` <figure class="thumb__img" data-id="${media.id}" tabindex="0" role="link" aria-label="ouvrir l'image ${media.title}">
-              <img src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/thumbs/${media.image}" alt="">
+              <img src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/thumbs/${media.image}" alt="${media.title}">
             </figure>`
                 :
                 ` <figure class="thumb__video" data-id="${media.id}" tabindex="0" role="link" aria-label="Ouvrir l'image">
@@ -31,9 +31,9 @@ class Gallery {
            <article class="thumb">
                 ${renderMedia}
                 <div class="thumb__details">
-                    <h3  tabindex="0">${media.title}</h3>
-                    <div class="likes handleLikes" data-id="${media.id}"  tabindex="0">
-                    <span class="count">${media.likes}</span><i class="fi-hearth" aria-label="like"></i>
+                    <h2  tabindex="0">${media.title}</h2>
+                    <div class="likes handleLikes" role="button" data-id="${media.id}"  tabindex="0">
+                    <span class="count">${media.likes}</span><i class="fi-hearth" aria-hidden="true"></i>
                     </div>
                 </div>
             </article>
