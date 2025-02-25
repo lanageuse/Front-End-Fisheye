@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/main.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye</title>
-  </head>
-  <body>
-    <header>
-        <img src="assets/images/logo.png" class="logo" alt="fisheye logo"/>
-        <h1>Nos photographes</h1>
-    </header>
-    <main id="main">
-        <div class="photographer_section"></div>
-    </main>
-    <script src="scripts/pages/index.js" type="module"></script>
-  </body>
+
+<head>
+  <link href="css/main.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye</title>
+</head>
+
+<body>
+  <header role="banner" aria-label="En-tête du site avec le logo et le titre">
+    <a href="/" title="Lien vers la page d'accueil">
+      <img src="assets/images/logo.png" class="logo" alt="Lien vers la page d'accueil" />
+    </a>
+    <h1 tabindex="0">Nos photographes</h1>
+  </header>
+  <main id="main" role="main" aria-label="Contenu principal de la page d'accueil" tabindex="0">
+    <div class="photographer_section"></div>
+  </main>
+  <script src="scripts/pages/index.js" type="module"></script>
+</body>
+
 </html>
