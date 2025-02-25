@@ -1,4 +1,4 @@
-import Photograph from "../models/photograph.js"
+import Photograph from "../models/Photograph.js"
 
 class CardProfile extends Photograph{
     constructor(data){
@@ -9,13 +9,14 @@ class CardProfile extends Photograph{
 
     createCard(){
         const card = `
-        <a href="photographer.html?id=${this.id}">
-        <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="Photographe ${this.name}">
+        <a href="photographer.html?id=${this.id}" aria-label="Voir le profil du photographe ${this.name}">
+        <img src="././assets/photographers/${this.portrait}" class="profile__thumb" alt="">
         <h2 class="profile__name">${this.name}</h2>
+         </a>
         <p class="profile__location">${this.city}, ${this.country}</p>
         <p class="profile__description">${this.tagline}</p>
         <p class="profile__dailyRate">${this.price}€/jour</p>
-        </a>
+       
         `
         this.$wrapper.innerHTML = card
         return this.$wrapper
