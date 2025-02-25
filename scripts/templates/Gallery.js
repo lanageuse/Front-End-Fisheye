@@ -18,11 +18,11 @@ class Gallery {
         <section class="gallery">
         ${this.medias.map(media => {
             const renderMedia = media.image ?
-                ` <figure class="thumb__img" data-id="${media.id}">
+                ` <figure class="thumb__img" data-id="${media.id}" tabindex="0" role="link" aria-label="ouvrir l'image ${media.title}">
               <img src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/thumbs/${media.image}" alt="">
             </figure>`
                 :
-                ` <figure class="thumb__video" data-id="${media.id}">
+                ` <figure class="thumb__video" data-id="${media.id}" tabindex="0" role="link" aria-label="Ouvrir l'image">
                     <video>
                     <source src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/${media.video}" type="video/mp4" />
                     </video>
@@ -31,9 +31,9 @@ class Gallery {
            <article class="thumb">
                 ${renderMedia}
                 <div class="thumb__details">
-                    <h3>${media.title}</h3>
-                    <div class="likes handleLikes" data-id="${media.id}">
-                    <span class="count">${media.likes}</span><i class="fi-hearth"></i>
+                    <h3  tabindex="0">${media.title}</h3>
+                    <div class="likes handleLikes" data-id="${media.id}"  tabindex="0">
+                    <span class="count">${media.likes}</span><i class="fi-hearth" aria-label="like"></i>
                     </div>
                 </div>
             </article>
@@ -52,10 +52,11 @@ class Gallery {
 
     createWidget() {
         const widget = `
-            <div class="widget__likes likes">
-            <span class="total-likes">${this.getCountLikes()}</span><i class="fi-hearth"></i>
+            <div class="widget__likes likes" aria-label="Nombre total de likes : ${this.getCountLikes()}" tabindex="0">
+                <span class="total-likes">${this.getCountLikes()}</span>
+                <i class="fi-hearth" aria-hidden="true"></i>
             </div>
-            <div class="widget__daily_rate" id="daily-rate">
+            <div class="widget__daily_rate" id="daily-rate" aria-label="Tarif journalier du photographe : ${this.photographer.price} euros" tabindex="0">
             <span class="price">${this.photographer.price}</span> € / jour
             </div>
         `
