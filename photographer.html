@@ -14,7 +14,7 @@
     </a>  
   </header>
    
-  <main id="main" role="main">
+  <main id="main" role="main" aria-hidden="false" >
     <section class="photograph-header">
     </section>
      <!-- widget -->
@@ -35,10 +35,10 @@
     <div class="gallery-container"></div>
   </main>
   <!-- modal -->
-  <div id="contact_modal" aria-modal="true" role="dialog">
+  <div id="contact_modal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
     <div class="modal">
       <header>
-        <h2>Contactez-moi</h2>
+        <h2 id="modalTitle" tabindex="-1">Contactez-moi</h2>
         <img src="assets/icons/close.svg" class="close_modal" />
       </header>
       <div class="form-success">Message envoyé avec succés</div>
