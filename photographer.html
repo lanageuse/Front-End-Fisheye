@@ -39,7 +39,7 @@
     <div class="modal">
       <header>
         <h2 id="modalTitle" tabindex="-1">Contactez-moi</h2>
-        <img src="assets/icons/close.svg" class="close_modal" />
+        <img src="assets/icons/close.svg" class="close_modal" alt="close modal" />
       </header>
       <div class="form-success" role="alert">Message envoyé avec succés</div>
       <form id="submitForm">
@@ -69,11 +69,11 @@
   <!-- lightbox -->
   <!-- Lightbox -->
   <div class="lightbox-overlay" aria-modal="true" role="dialog">
-    <div class="lightbox" aria-label="Media closeup view">
-      <button class="lightbox__btn_close btn_close" aria-label="Close dialog"><img src="assets/icons/close.svg" class="close_modal" /></button>
-      <button class="lightbox__btn_previous" aria-label="Previous media"><i class="fi-chevron-left" aria-hidden="true"></i></button>
+    <div class="lightbox" aria-label="Media closeup view" tabindex="0">
+      <figure class="lightbox__media" role="media" aria-label="Current Media" tabindex="0"></figure>
       <button class="lightbox__btn_next" aria-label="Next media"><i class="fi-chevron-right" aria-hidden="true"></i></button>
-      <figure class="lightbox__media" role="media" aria-label="Current Media"></figure>
+      <button class="lightbox__btn_previous" aria-label="Previous media"><i class="fi-chevron-left" aria-hidden="true"></i></button>
+      <button class="lightbox__btn_close btn_close" aria-label="Close dialog"><img src="assets/icons/close.svg" alt="Close dialog" class="close_modal" /></button>
     </div>
   </div>
 
