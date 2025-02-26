@@ -16,7 +16,7 @@ class Index{
             const photographers = JSON.parse(this.dataLocal)
             this.photographers = photographers.map(photograph => new Photograph(photograph))
         }else{
-            const {photographers, media}  = await this.dataApi.get()
+            const {photographers}  = await this.dataApi.get()
             this.photographers = photographers.map(photograph => new Photograph(photograph))
             this.saveData(this.photographers, "photographers")
         }
