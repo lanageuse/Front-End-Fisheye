@@ -11,7 +11,6 @@ class Photograph {
 
     get name() { return this._name }
     get id() { return this._id }
-    get id() { return this._id }
     get city() { return this._city }
     get country() { return this._country }
     get tagline() { return this._tagline }
@@ -21,7 +20,6 @@ class Photograph {
     toJSON() {
        return {
         "name" : this._name,
-        "id" : this._id,
         "id" : this._id,
         "city" : this._city,
         "country" : this._country,
