@@ -40,7 +40,7 @@ const inputForm = () =>
         const fieldValidator = validators.find(validator => validator.fieldName === fieldName);
 
         // Si un validateur est trouvé, effectue la validation
-        const error = fieldValidator?.validate(value);
+        const error = fieldValidator.validate(value);
 
         // Affiche ou masque le message d'erreur
         ErrorMessage(error, fieldName);
@@ -78,9 +78,6 @@ const submitForm = () => form.addEventListener("submit", (e) => {
     // Si tout est valide, affiche un message de succès
     if (isValidate) {
         showSucessMessage(form);
-        formSubmit.forEach((value, key) => {
-            console.log(`Key: ${key}, Value: ${value}`);
-        });
     }
 });
 
