@@ -26,7 +26,7 @@ export const displayLightbox = (medias, photographer) => {
         lightboxOverlay.style.display = 'none';
         lightbox.setAttribute("aria-hidden", "true");
         mainContent.setAttribute("aria-hidden", "false"); // Rétablit l'accès au contenu principal
-        thumbs[currentIndex]?.focus(); // Remet le focus sur la miniature correspondante
+        thumbs[currentIndex].focus(); // Remet le focus sur la miniature correspondante
     };
 
     // Affichage des médias dans la lightbox
@@ -83,8 +83,6 @@ export const displayLightbox = (medias, photographer) => {
                 case 'Tab': // Empêche de sortir de la lightbox avec Tab
                     if (document.activeElement === btnClose) {
                         lightbox.focus();
-                    }else{
-
                     }
                     break;
             }
