@@ -12,10 +12,9 @@ class FieldRuleValidator {
 
     /**
      * Méthode de validation si la méthode validate n'est pas implémenté dans la sous-class.
-     * @param {*} value - La valeur à valider.
      * @throws {Error} Lance une erreur si la méthode validate n'est pas implémenté dans la sous-class.
      */
-    validate(value) {
+    validate() {
         throw new Error("La méthode 'validate' doit être implémentée");
     }
 }
