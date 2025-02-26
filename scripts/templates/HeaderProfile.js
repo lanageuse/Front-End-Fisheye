@@ -14,8 +14,8 @@ class HeaderProfile extends Photograph {
         const header = `
         <div class="photograph-header__details">
         <h1 class="photograph-header__name"  tabindex="0">${this.name}</h1>
-        <p  class="photograph-header__location" tabindex="0">${this.city}, ${this.country}</p>
-        <p class="photograph-header__description"  tabindex="0">${this.tagline}</p>
+        <div  class="photograph-header__location" tabindex="0">${this.city}, ${this.country}</div>
+        <div class="photograph-header__description" tabindex="0">${this.tagline}</div>
       </div>
       <div class="photograph-header__contact"><button class="contact_button" aria-label="Bouton pour contacter ${this.name}">Contactez-moi</button>
       </div>
