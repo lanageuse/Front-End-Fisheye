@@ -8,7 +8,7 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
     const dropDownContent = document.getElementById('dropdownMenu');
     const dropDownButtons = dropDownContent.querySelectorAll('button');
 
-    // Fonction pour ouvrir/fermer le menu
+    // Fonction pour ouvrir/fermer le menu déroulant
     const toggleDropdown = () => {
         const isOpen = dropDownContent.classList.contains('show');
         dropDownContent.classList.toggle('show');
@@ -27,37 +27,37 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
     };
 
     // Gestion du clic sur le bouton principal
-    dropDown.addEventListener("click", () => {
-        toggleDropdown();
-    });
+    dropDown.addEventListener("click", toggleDropdown);
 
-    // Gestion de la navigation au clavier
+    // Gestion de la navigation clavier
     dropDown.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            toggleDropdown();
+        switch (e.key) {
+            case "Enter":
+            case " ":
+                e.preventDefault();
+                toggleDropdown();
+                break;
+            case "ArrowDown":
+                e.preventDefault();
+                dropDownButtons[0].focus();
+                break;
         }
     });
 
     dropDownButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            const filterType = button.textContent.trim().toLowerCase();
-            const currentFilter = dropDownSpan.textContent;
-            const selectedFilter = button.textContent;
-
-            dropDownSpan.innerHTML = selectedFilter;
-            button.textContent = currentFilter;
+            const selectedFilter = button.textContent.trim();
+            dropDownSpan.textContent = selectedFilter; // Mettre à jour le texte du bouton
 
             dropDownContent.classList.remove('show');
             dropDownIcon.classList.remove('open');
             dropDown.setAttribute("aria-expanded", "false");
             dropDownContent.setAttribute("aria-hidden", "true");
-
-            // Réinitialisation du focus sur le bouton principal après sélection
-            dropDown.focus();
+            dropDown.focus(); // Remet le focus sur le bouton après sélection
 
             // Appliquer le tri
             let sortedGallery = [...gallery];
-            switch (filterType) {
+            switch (selectedFilter.toLowerCase()) {
                 case "popularité":
                     sortedGallery.sort((a, b) => b.likes - a.likes);
                     break;
@@ -67,8 +67,6 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
                 case "titre":
                     sortedGallery.sort((a, b) => a.title.localeCompare(b.title));
                     break;
-                default:
-                    break;
             }
 
             updateDisplay(sortedGallery);
@@ -76,22 +74,29 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
             displayLightbox(sortedGallery, photographer);
         });
 
-        // Gestion de la navigation clavier à l'intérieur du menu
+        // Navigation au clavier dans la liste des options
         button.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowDown") {
-                e.preventDefault();
-                const next = dropDownButtons[index + 1] || dropDownButtons[0];
-                next.focus();
-            } else if (e.key === "ArrowUp") {
-                e.preventDefault();
-                const prev = dropDownButtons[index - 1] || dropDownButtons[dropDownButtons.length - 1];
-                prev.focus();
-            } else if (e.key === "Escape") {
-                dropDownContent.classList.remove('show');
-                dropDownIcon.classList.remove('open');
-                dropDown.setAttribute("aria-expanded", "false");
-                dropDownContent.setAttribute("aria-hidden", "true");
-                dropDown.focus();
+            switch (e.key) {
+                case "ArrowDown": {
+                    e.preventDefault();
+                    const next = dropDownButtons[index + 1] || dropDownButtons[0];
+                    next.focus();
+                    break;
+                }
+                case "ArrowUp": {
+                    e.preventDefault();
+                    const prev = dropDownButtons[index - 1] || dropDownButtons[dropDownButtons.length - 1];
+                    prev.focus();
+                    break;
+                }
+                case "Escape":
+                    e.preventDefault();
+                    dropDownContent.classList.remove('show');
+                    dropDownIcon.classList.remove('open');
+                    dropDown.setAttribute("aria-expanded", "false");
+                    dropDownContent.setAttribute("aria-hidden", "true");
+                    dropDown.focus();
+                    break;
             }
         });
     });
