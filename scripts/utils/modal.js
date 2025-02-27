@@ -4,6 +4,7 @@ const openCloseModal = () => {
     const $mainWrapper = document.getElementById("main");
     const $openModalBtn = document.querySelector('.contact_button')
     const $closeModalBtn = document.querySelector('.close_modal')
+    const $submitBtn = document.querySelector('button[type="submit"]')
 
     const openModal = () => {
         $modal.style.display = 'block';
@@ -28,8 +29,17 @@ const openCloseModal = () => {
     })
 
     window.addEventListener("keydown", e => {
-        if ($modal.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') {
-            closeModal()
+        if ($modal.getAttribute('aria-hidden') === 'false') {
+            switch (e.key) {
+                case 'Escape' :
+                    closeModal()
+                    break;
+                case 'Tab' : 
+                if (document.activeElement === $submitBtn) {
+                    $modalTitle.focus();
+                }
+                    break;
+            }
         }
     })
 
