@@ -1,6 +1,7 @@
 import Api from '../api/Api.js'
 import Photograph from '../models/Photograph.js'
 import HeaderProfile from '../templates/HeaderProfile.js'
+import FactoryMedia from '../factories/FactoryMedia.js'
 import Gallery from '../templates/Gallery.js'
 import { handleLikes } from '../utils/likes.js'
 import openCloseModal from '../utils/modal.js'
@@ -39,10 +40,12 @@ class PhotographerPage {
     async getGallery() {
         if (this.dataLocal) {
             const media = JSON.parse(this.dataLocal)
-            this.gallery = media.filter(media => media.photographerId === this.id)
+            this.gallery = media.map(media => new FactoryMedia(media))
+            .filter(media => media.photographerId === this.id)
         } else {
             const { media } = await this.api.get()
-            this.gallery = media.filter(media => media.photographerId === this.id)
+            this.gallery = media.map(media => new FactoryMedia(media))
+            .filter(media => media.photographerId === this.id)
             this.saveGallery(this.id, this.gallery)
         }
         return this.gallery
