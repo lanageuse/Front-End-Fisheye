@@ -28,11 +28,11 @@ export const handleLikes = async () => {
         if (btn.classList.contains('liked')) {
             likeCount = likeCount + 1
             EventLikes.notify("INC")
-            EventStorage.notify("ADD", [media_id, photograph_id])
+            EventStorage.notify("ADD", {media_id, photograph_id})
         } else {
             likeCount = likeCount - 1
             EventLikes.notify("DEC")
-            EventStorage.notify("DEL", [media_id, photograph_id])
+            EventStorage.notify("DEL", {media_id, photograph_id})
         }
         likeWrapper.textContent = likeCount
     }

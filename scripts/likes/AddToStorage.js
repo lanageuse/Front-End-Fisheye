@@ -1,18 +1,18 @@
 class AddToStorage {
 
     update(action, data) {
-        const storage = JSON.parse(localStorage.getItem(`${data[1]}`))
+        const storage = JSON.parse(localStorage.getItem(`${data.photograph_id}`))
         if (!(storage)) {
-            throw new Error(`media ${data[1]} doesn't exist in localstorage`)
+            throw new Error(`media ${data.media_id} doesn't exist in localstorage`)
         }
 
         let updateStorage = storage.map((element) => {
-            if (element.id === Number(data[0])) {
+            if (element.id === Number(data.media_id)) {
              element.likes = action === 'ADD' ? element.likes + 1 : element.likes - 1
             }
             return element
          });
-         localStorage.setItem(`${data[1]}`, JSON.stringify(updateStorage))
+         localStorage.setItem(`${data.photograph_id}`, JSON.stringify(updateStorage))
     }
 
 }
