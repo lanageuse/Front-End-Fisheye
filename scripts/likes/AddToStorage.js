@@ -8,11 +8,12 @@ class AddToStorage {
 
         let updateStorage = storage.map((element) => {
             if (element.id === Number(data.media_id)) {
-             element.likes = action === 'ADD' ? element.likes + 1 : element.likes - 1
+                element.isLiked = action === 'ADD' ? true : false
+                element.likes = action === 'ADD' ? element.likes + 1 : element.likes - 1
             }
             return element
-         });
-         localStorage.setItem(`${data.photograph_id}`, JSON.stringify(updateStorage))
+        });
+        localStorage.setItem(`${data.photograph_id}`, JSON.stringify(updateStorage))
     }
 
 }

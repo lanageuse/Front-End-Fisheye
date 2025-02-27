@@ -32,7 +32,7 @@ class Gallery {
                 ${renderMedia}
                 <div class="thumb__details">
                     <h2  tabindex="0">${media.title}</h2>
-                    <div class="likes handleLikes" role="button" data-id="${media.id}"  tabindex="0">
+                    <div class="likes handleLikes ${media.isLiked ? 'liked' : ''}" role="button" data-id="${media.id}"  tabindex="0">
                     <span class="count">${media.likes}</span><i class="fi-hearth" aria-hidden="true"></i>
                     </div>
                 </div>
