@@ -138,6 +138,7 @@ header .logo {
   position: absolute;
   top: 10vh;
   width: 100%;
+  z-index: 3;
 }
 #contact_modal .modal {
   border-radius: 5px;
