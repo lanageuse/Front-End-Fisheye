@@ -1,9 +1,24 @@
+/**
+ * Component for rendering a media gallery and associated widgets
+ * @class
+ */
 class Gallery {
+    /**
+     * Creates a new Gallery instance
+     * @param {Array} medias - Array of media items to display
+     * @param {Object} photographer - Photographer data object
+     */
     constructor(medias, photographer) {
         this.photographer = photographer
         this.medias = medias
     }
 
+    /**
+     * Formats photographer name for use in file paths
+     * @static
+     * @param {string} name - Photographer's full name
+     * @returns {string} Formatted name for folder structure
+     */
     static getFolderName(name) {
         return name
             .replace(/[-_]/g, ' ')
@@ -13,6 +28,10 @@ class Gallery {
             .join(' ')
     }
 
+    /**
+     * Generates HTML for the media gallery
+     * @returns {string} HTML string for the gallery section
+     */
     createGallery() {
         const render = `
         <section class="gallery">
@@ -45,11 +64,19 @@ class Gallery {
         return render
     }
 
+    /**
+     * Calculates total likes across all media items
+     * @returns {number} Total number of likes
+     */
     getCountLikes() {
         const result = this.medias.reduce((acc, media) => acc + media.likes, 0)
         return result
     }
 
+    /**
+     * Generates HTML for the likes and price widget
+     * @returns {string} HTML string for the widget
+     */
     createWidget() {
         const widget = `
             <div class="widget__likes likes" aria-label="Nombre total de likes : ${this.getCountLikes()}" tabindex="0">
@@ -62,8 +89,6 @@ class Gallery {
         `
         return widget
     }
-
 }
+
 export default Gallery
-
-

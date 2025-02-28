@@ -1,3 +1,8 @@
+/**
+ * Manages modal dialog functionality with accessibility support
+ * @module modal
+ */
+
 const openCloseModal = () => {
     const $modal = document.getElementById("contact_modal");
     const $modalTitle = document.getElementById("modalTitle");
@@ -6,6 +11,9 @@ const openCloseModal = () => {
     const $closeModalBtn = document.querySelector('.close_modal')
     const $submitBtn = document.querySelector('button[type="submit"]')
 
+    /**
+     * Opens modal and sets appropriate ARIA attributes
+     */
     const openModal = () => {
         $modal.style.display = 'block';
         $modal.setAttribute("aria-hidden", "false");
@@ -13,6 +21,9 @@ const openCloseModal = () => {
         $modalTitle.focus()
     };
 
+    /**
+     * Closes modal and restores main content accessibility
+     */
     const closeModal = () => {
         $modal.style.display = 'none';
         $modal.setAttribute("aria-hidden", "true");
@@ -20,14 +31,17 @@ const openCloseModal = () => {
         $openModalBtn.focus()
     };
 
+    // Modal open button handler
     $openModalBtn.addEventListener("click", () => {
         openModal();
     })
 
+    // Modal close button handler
     $closeModalBtn.addEventListener("click", () => {
         closeModal()
     })
 
+    // Global keyboard navigation handler
     window.addEventListener("keydown", e => {
         if ($modal.getAttribute('aria-hidden') === 'false') {
             switch (e.key) {
@@ -42,7 +56,6 @@ const openCloseModal = () => {
             }
         }
     })
-
 };
 
 export default openCloseModal;

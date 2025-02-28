@@ -1,6 +1,17 @@
+/**
+ * Manages dropdown filtering functionality with accessibility support
+ * @module filter
+ */
+
 import { handleLikes } from "./likes.js";
 import { displayLightbox } from "./lightbox.js";
 
+/**
+ * Sets up and manages dropdown filtering functionality
+ * @param {Array} gallery - Array of media items to filter
+ * @param {Function} updateDisplay - Callback function to update the display
+ * @param {Object} photographer - Photographer data object
+ */
 export const handleFilter = (gallery, updateDisplay, photographer) => {
     const dropDown = document.querySelector('.dropbtn');
     const dropDownSpan = document.querySelector('.dropbtn span');
@@ -8,7 +19,9 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
     const dropDownContent = document.getElementById('dropdownMenu');
     const dropDownButtons = dropDownContent.querySelectorAll('button');
 
-    // Fonction pour ouvrir/fermer le menu déroulant
+    /**
+     * Toggles dropdown menu visibility and accessibility attributes
+     */
     const toggleDropdown = () => {
         const isOpen = dropDownContent.classList.contains('show');
         dropDownContent.classList.toggle('show');
@@ -16,24 +29,22 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
         dropDown.setAttribute("aria-expanded", !isOpen);
         dropDownContent.setAttribute("aria-hidden", isOpen);
 
-        // Gérer le focus des éléments du menu
         dropDownButtons.forEach(button => {
             button.setAttribute("tabindex", isOpen ? "-1" : "0");
         });
 
         if (!isOpen) {
-            dropDownButtons[0].focus(); // Focus sur le premier élément
+            dropDownButtons[0].focus();
         }
     };
 
-    // Gestion du clic sur le bouton principal
+    // Handle dropdown button click
     dropDown.addEventListener("click", toggleDropdown);
 
-    // Gestion de la navigation clavier
+    // Handle keyboard navigation for dropdown button
     dropDown.addEventListener("keydown", (e) => {
         switch (e.key) {
             case "Enter":
-            case " ":
                 e.preventDefault();
                 toggleDropdown();
                 break;
@@ -44,20 +55,28 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
         }
     });
 
+    // Handle dropdown options events
     dropDownButtons.forEach((button, index) => {
+        // Handle option selection
         button.addEventListener('click', () => {
-            const selectedFilter = button.textContent.trim();
-            dropDownSpan.textContent = selectedFilter; // Mettre à jour le texte du bouton
+            const filterType = button.textContent.trim().toLowerCase();
+            const currentFilter = dropDownSpan.textContent;
+            const selectedFilter = button.textContent;
 
+            // Update dropdown display
+            dropDownSpan.innerHTML = selectedFilter;
+            button.textContent = currentFilter;
+
+            // Close dropdown
             dropDownContent.classList.remove('show');
             dropDownIcon.classList.remove('open');
             dropDown.setAttribute("aria-expanded", "false");
             dropDownContent.setAttribute("aria-hidden", "true");
-            dropDown.focus(); // Remet le focus sur le bouton après sélection
+            dropDown.focus();
 
-            // Appliquer le tri
+            // Sort gallery based on selected filter
             let sortedGallery = [...gallery];
-            switch (selectedFilter.toLowerCase()) {
+            switch (filterType) {
                 case "popularité":
                     sortedGallery.sort((a, b) => b.likes - a.likes);
                     break;
@@ -69,26 +88,26 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
                     break;
             }
 
+            // Update display with sorted gallery
             updateDisplay(sortedGallery);
             handleLikes();
             displayLightbox(sortedGallery, photographer);
         });
 
-        // Navigation au clavier dans la liste des options
+        // Handle keyboard navigation within dropdown options
         button.addEventListener("keydown", (e) => {
+            const next = dropDownButtons[index + 1] || dropDownButtons[0];
+            const prev = dropDownButtons[index - 1] || dropDownButtons[dropDownButtons.length - 1];
+            
             switch (e.key) {
-                case "ArrowDown": {
+                case "ArrowDown":
                     e.preventDefault();
-                    const next = dropDownButtons[index + 1] || dropDownButtons[0];
                     next.focus();
                     break;
-                }
-                case "ArrowUp": {
+                case "ArrowUp":
                     e.preventDefault();
-                    const prev = dropDownButtons[index - 1] || dropDownButtons[dropDownButtons.length - 1];
                     prev.focus();
                     break;
-                }
                 case "Escape":
                     e.preventDefault();
                     dropDownContent.classList.remove('show');
@@ -101,7 +120,7 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
         });
     });
 
-    // Fermer le menu si l'utilisateur clique en dehors
+    // Close dropdown when clicking outside
     document.addEventListener("click", (event) => {
         if (!dropDown.contains(event.target) && !dropDownContent.contains(event.target)) {
             dropDownContent.classList.remove('show');

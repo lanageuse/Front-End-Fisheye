@@ -1,5 +1,15 @@
+/**
+ * Implements an accessible lightbox gallery component
+ * @module lightbox
+ */
+
 import Gallery from "../templates/Gallery.js"
 
+/**
+ * Sets up and manages lightbox functionality with keyboard navigation and accessibility
+ * @param {Array} medias - Array of media items to display in lightbox
+ * @param {Object} photographer - Photographer data object for file path construction
+ */
 export const displayLightbox = (medias, photographer) => {
     const thumbs = document.querySelectorAll('article figure');
     const lightboxOverlay = document.querySelector('.lightbox-overlay');
@@ -11,25 +21,32 @@ export const displayLightbox = (medias, photographer) => {
     const mainContent = document.getElementById("main");
     let currentIndex = 0;
 
-    // Fonction pour ouvrir la lightbox
+    /**
+     * Opens lightbox and displays selected media
+     * @param {HTMLElement} thumb - Thumbnail element that triggered the lightbox
+     */
     const openLightBox = (thumb) => {
         currentIndex = medias.findIndex(media => media.id === Number(thumb.dataset.id));
         lightboxOverlay.style.display = 'flex';
         lightbox.setAttribute("aria-hidden", "false");
-        mainContent.setAttribute("aria-hidden", "true"); // Cache le reste du contenu
+        mainContent.setAttribute("aria-hidden", "true");
         displayMedia();
         lightbox.focus();
     };
 
-    // Fonction pour fermer la lightbox
+    /**
+     * Closes lightbox and restores main content visibility
+     */
     const closeLightbox = () => {
         lightboxOverlay.style.display = 'none';
         lightbox.setAttribute("aria-hidden", "true");
-        mainContent.setAttribute("aria-hidden", "false"); // Rétablit l'accès au contenu principal
-        thumbs[currentIndex].focus(); // Remet le focus sur la miniature correspondante
+        mainContent.setAttribute("aria-hidden", "false");
+        thumbs[currentIndex].focus();
     };
 
-    // Affichage des médias dans la lightbox
+    /**
+     * Renders current media item in lightbox
+     */
     const displayMedia = () => {
         const currentMedia = medias[currentIndex];
         const template = currentMedia.image ? `
@@ -42,24 +59,28 @@ export const displayLightbox = (medias, photographer) => {
         mediaWrapper.innerHTML = template + `<figcaption tabindex="0">${currentMedia.title}</figcaption>`;
     };
 
-    // Fonction pour passer au média suivant
+    /**
+     * Displays next media item in gallery
+     */
     const nextMedia = () => {
         currentIndex = (currentIndex + 1) % medias.length;
         displayMedia();
     };
 
-    // Fonction pour revenir au média précédent
+    /**
+     * Displays previous media item in gallery
+     */
     const prevMedia = () => {
         currentIndex = (currentIndex - 1 + medias.length) % medias.length;
         displayMedia();
     };
 
-    // Événements sur les boutons de navigation
+    // Navigation button event listeners
     btnNext.addEventListener("click", nextMedia);
     btnPrev.addEventListener("click", prevMedia);
     btnClose.addEventListener("click", closeLightbox);
 
-    // Ouvrir la lightbox au clic
+    // Thumbnail click and keyboard event listeners
     thumbs.forEach(thumb => {
         thumb.addEventListener("click", () => openLightBox(thumb));
         thumb.addEventListener("keydown", (e) => {
@@ -67,7 +88,7 @@ export const displayLightbox = (medias, photographer) => {
         });
     });
 
-    // Navigation au clavier
+    // Global keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (lightboxOverlay.style.display === 'flex') {
             switch (e.key) {
@@ -80,7 +101,7 @@ export const displayLightbox = (medias, photographer) => {
                 case 'ArrowRight':
                     nextMedia();
                     break;
-                case 'Tab': // Empêche de sortir de la lightbox avec Tab
+                case 'Tab':
                     if (document.activeElement === btnClose) {
                         lightbox.focus();
                     }
