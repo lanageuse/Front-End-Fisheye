@@ -3,6 +3,12 @@
     align-items: center;
     gap: rem(5);
     color:$primary-color;
+    &:hover{
+        cursor: pointer;
+    }
+    &.liked{
+        color: $secondary-color;
+    }
     span{
         font-size: rem(24);
     }

@@ -1,0 +1,70 @@
+.filter {
+  display: flex;
+  align-items: center;
+  gap: rem(25);
+  margin: rem(50) rem(100);
+  &__title {
+    font-weight: $font-bold;
+    font-size: rem(18);
+  }
+  &__dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    .dropbtn {
+      display: flex;
+      justify-content: space-between;
+      gap: rem(10);
+      min-width: rem(160);
+      background-color: $primary-color;
+      color: $white;
+      font-weight: $font-bold;
+      font-size: rem(18);
+      padding: 24px 20px;
+      border: none;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      z-index: 1;
+      i {
+        transition: transform ease-in-out 0.3s;
+        &.open {
+          position: relative;
+          top: rem(5);
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .dropdown-content {
+      display: flex;
+      visibility: hidden;
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      flex-direction: column;
+      padding: rem(5) rem(10);
+      border-radius: 0 0 $radius-sm $radius-sm;
+      background-color: $primary-color;
+      z-index: 1;
+      transform: translateY(5px);
+      transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.2s;
+      z-index: -1;
+      &.show {
+        visibility: visible;
+        transform: translateY(68px);
+      }
+      button {
+        cursor: pointer;
+        border: 0;
+        background-color: transparent;
+        color: $white;
+        font-size: rem(18);
+        text-align: left;
+        padding: 12px 16px;
+        border-top: 1px solid white;
+        text-decoration: none;
+      }
+    }
+  }
+}

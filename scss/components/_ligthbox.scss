@@ -1,0 +1,67 @@
+.lightbox{
+    max-width: 90vw; /* Ne dépasse pas 90% de la largeur de l’écran */
+    max-height: 90vh; /* Ne dépasse pas 90% de la hauteur de l’écran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    &-overlay{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    &__btn_close{
+        position: absolute;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        top:20px;
+        right: 20px;
+    }
+    &__btn_next, &__btn_previous{
+        cursor: pointer;
+        font-size:rem(40);
+        border:0;
+        background: transparent;
+        position: absolute;
+        top:50%;
+        left:0;
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        i{
+            color:$primary-color;
+        }
+    }
+    &__btn_previous{
+        left: 0;
+    }
+    &__btn_next{
+        left: auto;
+        right: 0;
+    }
+    &__media{
+        background: #000;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Empêche la déformation, adapte à la box */
+        }
+        figcaption{
+            position: fixed;
+            bottom: 2%;
+            color:$white;
+            width: 100%;
+            left: 0;
+            text-align: center;
+        }
+    }
+
+}

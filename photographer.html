@@ -1,37 +1,83 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="css/main.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+<html lang="fr">
+<head>
+  <link href="css/main.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+<body>
+  <header role="banner" aria-label="En-tête du site avec le logo et le titre">
+    <a href="/" title="Lien vers la page d'accueil">
+      <img src="assets/images/logo.png" class="logo" alt="Lien vers la page d'accueil" />
+    </a>  
+  </header>
+   
+  <main id="main" role="main" aria-hidden="false" >
+    <section class="photograph-header">
+    </section>
+     <!-- widget -->
+     <aside class="widget" role="complementary" aria-label="Informations sur le photographe"></aside>
+     <!-- filter -->
+    <div class="filter">
+      <div class="filter__title" tabindex="0">Trier par</div>  
+      <div class="filter__dropdown">
+        <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownMenu" id="dropdownButton">
+          <span>Popularité</span> <i class="fi-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div id="dropdownMenu" class="dropdown-content" aria-hidden="true" role="menu">
+          <button type="button" role="menuitem" class="dropdown-item">Date</button>
+          <button type="button" role="menuitem" class="dropdown-item">Titre</button>
+        </div>
       </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+    </div>
+    <div class="gallery-container"></div>
+  </main>
+  <!-- modal -->
+  <div id="contact_modal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal">
+      <header>
+        <h2 id="modalTitle" tabindex="-1">Contactez-moi</h2>
+        <img src="assets/icons/close.svg" class="close_modal" alt="close modal" />
+      </header>
+      <div class="form-success" role="alert">Message envoyé avec succés</div>
+      <form id="submitForm">
+        <div class="formData">
+          <label for="firstname">Prénom</label>
+          <input type="text" id="firstname" class="text-control" name="firstname" required aria-required="true"
+            autocomplete="given-name">
+        </div>
+        <div class="formData">
+          <label for="lastname">Nom</label>
+          <input type="text" id="lastname" class="text-control" name="lastname" required aria-required="true"
+            autocomplete="family-name">
+        </div>
+        <div class="formData">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="text-control" name="email" required aria-required="true"
+            autocomplete="email">
+        </div>
+        <div class="formData">
+          <label for="message">Message</label>
+          <textarea id="message" class="text-control" name="message" required aria-required="true"></textarea>
+        </div>
+        <button type="submit" class="contact_button" aria-label="Envoyer le formulaire de contact">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <!-- lightbox -->
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" aria-modal="true" role="dialog">
+    <div class="lightbox" aria-label="Media closeup view" tabindex="0">
+      <figure class="lightbox__media" role="media" aria-label="Current Media" tabindex="0"></figure>
+      <button class="lightbox__btn_next" aria-label="Next media"><i class="fi-chevron-right" aria-hidden="true"></i></button>
+      <button class="lightbox__btn_previous" aria-label="Previous media"><i class="fi-chevron-left" aria-hidden="true"></i></button>
+      <button class="lightbox__btn_close btn_close" aria-label="Close dialog"><img src="assets/icons/close.svg" alt="Close dialog" class="close_modal" /></button>
+    </div>
+  </div>
+
+  <script src="/scripts/pages/photographer.js" type="module"></script>
+</body>
+
 </html>

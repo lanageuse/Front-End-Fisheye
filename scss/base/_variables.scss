@@ -2,21 +2,27 @@
 $font-family: "DM Sans", sans-serif;
 $font-normal : 400;
 $font-semibold : 500;
-$font-bold : 800;
+$font-bold : 700;
 // font icon
 $icomoon-font-family: "fisheye" !default;
 $icomoon-font-path: "../../assets/fonts" !default;
+$fi-chevron-right: unquote('"\\e904"');
+$fi-chevron-left: unquote('"\\e905"');
 $fi-chevron-down: unquote('"\\e900"');
-$fi-hearth: unquote('"\\e903"');
 $fi-chevron-up: unquote('"\\e901"');
+$fi-hearth: unquote('"\\e903"');
 $fi-camera: unquote('"\\e902"');
 // Colors
 $primary-color: #901c1c;
 $secondary-color: #d3573c;
+$error-color:#d40808;
+$sucess-color:#3fa83f;
 $grey : #312E2E;
 $grey-light : #757575;
 $black : #000000;
+$white : #ffffff;
 // boder-radius
-$radius-sm : 5px;
+$radius-sm : rem(5);
+$radius-xl : rem(100);
 
 

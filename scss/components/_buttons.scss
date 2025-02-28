@@ -1,9 +1,9 @@
 .contact_button {
     font-size: rem(20);
     font-weight: bold;
-    color: white;
+    color: $white;
     padding: 11px;
-    width: 170px;
+    width: rem(200);
     height: 70px;
     border: none;
     background-color: $primary-color;

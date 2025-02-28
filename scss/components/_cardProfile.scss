@@ -1,0 +1,39 @@
+.profile {
+  text-align: center;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+  }
+  &__thumb {
+    width: rem(200);
+    height: rem(200);
+    object-fit: cover;
+    object-position: center;
+    border-radius: $radius-xl;
+  }
+  &__name {
+    color: $secondary-color;
+    font-size: rem(36);
+    margin: 0;
+    font-weight: $font-normal;
+  }
+  p{
+    margin: rem(2) 0;
+  }
+  &__location {
+    color: $primary-color;
+    font-size: rem(16);
+  }
+  &__description {
+    color: $black;
+    font-size: rem(13);
+  }
+  &__dailyRate {
+    color: $grey-light;
+    font-size: rem(13);
+  }
+}

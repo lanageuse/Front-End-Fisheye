@@ -1,0 +1,25 @@
+.widget{
+    background-color: $secondary-color;
+    border-radius: $radius-sm $radius-sm 0 0;
+    position: fixed;
+    bottom:0;
+    right:2%;
+    min-width: rem(376);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: rem(10);
+    transform: translateY(60px);
+    transition: transform ease-in-out 0.6s;
+    z-index: 1;
+    &.show{
+        transform: translateY(0);
+    }
+    &__likes{
+        color:$black;
+    }
+    &__daily_rate{
+        font-size: rem(24);
+    }
+
+}
