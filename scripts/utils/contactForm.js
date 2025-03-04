@@ -60,6 +60,9 @@ const submitForm = () => form.addEventListener("submit", (e) => {
 
     if (isValidate) {
         showSucessMessage(form);
+        formSubmit.forEach((value, key) => {
+            console.log(`Key: ${key}, Value: ${value}`);
+        });
     }
 });
 
