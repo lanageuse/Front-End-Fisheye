@@ -1,35 +1,35 @@
 /**
- * Base class for form field validation rules
+ * Classe de base pour les règles de validation des champs de formulaire
  * @class
  */
 class FieldRuleValidator {
     /**
-     * Creates a validation rule
-     * @param {string} errorMessage - Error message to display if validation fails
+     * Crée une règle de validation
+     * @param {string} errorMessage - Message d'erreur à afficher si la validation échoue
      */
     constructor(errorMessage) {
         this.errorMessage = errorMessage;
     }
 
     /**
-     * Base validate method that must be implemented by child classes
-     * @throws {Error} Throws an error if validate method is not implemented
+     * Méthode de validation de base qui doit être implémentée par les classes enfants
+     * @throws {Error} Lance une erreur si la méthode validate n'est pas implémentée
      */
     validate() {
-        throw new Error("The 'validate' method must be implemented");
+        throw new Error("La méthode 'validate' doit être implémentée");
     }
 }
 
 /**
- * Validates required fields
+ * Valide les champs obligatoires
  * @class
  * @extends FieldRuleValidator
  */
 export class RequiredRule extends FieldRuleValidator {
     /**
-     * Validates that value is not empty or only whitespace
-     * @param {string} value - Value to validate
-     * @returns {boolean} True if value is valid
+     * Vérifie que la valeur n'est pas vide ou composée uniquement d'espaces
+     * @param {string} value - Valeur à valider
+     * @returns {boolean} Vrai si la valeur est valide
      */
     validate(value) {
         return value && value.trim() !== "";
@@ -37,15 +37,15 @@ export class RequiredRule extends FieldRuleValidator {
 }
 
 /**
- * Validates email format
+ * Valide le format d'email
  * @class
  * @extends FieldRuleValidator
  */
 export class EmailRule extends FieldRuleValidator {
     /**
-     * Validates email format using regex
-     * @param {string} value - Email to validate
-     * @returns {boolean} True if email format is valid
+     * Valide le format d'email en utilisant une expression régulière
+     * @param {string} value - Email à valider
+     * @returns {boolean} Vrai si le format d'email est valide
      */
     validate(value) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,15 +54,15 @@ export class EmailRule extends FieldRuleValidator {
 }
 
 /**
- * Validates minimum length requirement
+ * Valide la longueur minimale requise
  * @class
  * @extends FieldRuleValidator
  */
 export class MinLengthRule extends FieldRuleValidator {
     /**
-     * Creates a minimum length validation rule
-     * @param {number} minLength - Minimum required length
-     * @param {string} errorMessage - Error message to display
+     * Crée une règle de validation de longueur minimale
+     * @param {number} minLength - Longueur minimale requise
+     * @param {string} errorMessage - Message d'erreur à afficher
      */
     constructor(minLength, errorMessage) {
         super(errorMessage)
@@ -70,9 +70,9 @@ export class MinLengthRule extends FieldRuleValidator {
     }
 
     /**
-     * Validates minimum length requirement
-     * @param {string} value - Value to validate
-     * @returns {boolean} True if length meets requirement
+     * Valide l'exigence de longueur minimale
+     * @param {string} value - Valeur à valider
+     * @returns {boolean} Vrai si la longueur respecte l'exigence
      */
     validate(value) {
         return value.length >= this.minLength;
@@ -80,15 +80,15 @@ export class MinLengthRule extends FieldRuleValidator {
 }
 
 /**
- * Validates numeric values
+ * Valide les valeurs numériques
  * @class
  * @extends FieldRuleValidator
  */
 export class NumericRule extends FieldRuleValidator {
     /**
-     * Validates that value is a valid number
-     * @param {string} value - Value to validate
-     * @returns {boolean} True if value is a valid number
+     * Vérifie que la valeur est un nombre valide
+     * @param {string} value - Valeur à valider
+     * @returns {boolean} Vrai si la valeur est un nombre valide
      */
     validate(value) {
         const parsedValue = Number(value);
@@ -97,14 +97,14 @@ export class NumericRule extends FieldRuleValidator {
 }
 
 /**
- * Manages validation rules for a form field
+ * Gère les règles de validation pour un champ de formulaire
  * @class
  */
 export class FieldValidator {
     /**
-     * Creates a field validator with specified rules
-     * @param {string} fieldName - Name of field to validate
-     * @param {FieldRuleValidator[]} rules - Array of validation rules
+     * Crée un validateur de champ avec des règles spécifiées
+     * @param {string} fieldName - Nom du champ à valider
+     * @param {FieldRuleValidator[]} rules - Tableau des règles de validation
      */
     constructor(fieldName, rules = []) {
         this.fieldName = fieldName;
@@ -112,9 +112,9 @@ export class FieldValidator {
     }
 
     /**
-     * Validates field value against all rules
-     * @param {string} value - Value to validate
-     * @returns {string|null} Error message or null if valid
+     * Valide la valeur du champ selon toutes les règles
+     * @param {string} value - Valeur à valider
+     * @returns {string|null} Message d'erreur ou null si valide
      */
     validate(value) {
         for (const rule of this.rules) {

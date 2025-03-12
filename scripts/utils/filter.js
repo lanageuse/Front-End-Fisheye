@@ -1,5 +1,5 @@
 /**
- * Manages dropdown filtering functionality with accessibility support
+ * Gère la fonctionnalité de filtrage par menu déroulant avec support d'accessibilité
  * @module filter
  */
 
@@ -7,10 +7,10 @@ import { handleLikes } from "./likes.js";
 import { displayLightbox } from "./lightbox.js";
 
 /**
- * Sets up and manages dropdown filtering functionality
- * @param {Array} gallery - Array of media items to filter
- * @param {Function} updateDisplay - Callback function to update the display
- * @param {Object} photographer - Photographer data object
+ * Configure et gère la fonctionnalité de filtrage par menu déroulant
+ * @param {Array} gallery - Tableau des éléments média à filtrer
+ * @param {Function} updateDisplay - Fonction de rappel pour mettre à jour l'affichage
+ * @param {Object} photographer - Objet contenant les données du photographe
  */
 export const handleFilter = (gallery, updateDisplay, photographer) => {
     const dropDown = document.querySelector('.dropbtn');
@@ -20,7 +20,7 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
     const dropDownButtons = dropDownContent.querySelectorAll('button');
 
     /**
-     * Toggles dropdown menu visibility and accessibility attributes
+     * Bascule la visibilité du menu déroulant et les attributs d'accessibilité
      */
     const toggleDropdown = () => {
         const isOpen = dropDownContent.classList.contains('show');
@@ -38,10 +38,10 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
         }
     };
 
-    // Handle dropdown button click
+    // Gestion du clic sur le bouton du menu déroulant
     dropDown.addEventListener("click", toggleDropdown);
 
-    // Handle keyboard navigation for dropdown button
+    // Gestion de la navigation au clavier pour le bouton du menu déroulant
     dropDown.addEventListener("keydown", (e) => {
         switch (e.key) {
             case "Enter":
@@ -55,26 +55,26 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
         }
     });
 
-    // Handle dropdown options events
+    // Gestion des événements des options du menu déroulant
     dropDownButtons.forEach((button, index) => {
-        // Handle option selection
+        // Gestion de la sélection d'une option
         button.addEventListener('click', () => {
             const filterType = button.textContent.trim().toLowerCase();
             const currentFilter = dropDownSpan.textContent;
             const selectedFilter = button.textContent;
 
-            // Update dropdown display
+            // Mise à jour de l'affichage du menu déroulant
             dropDownSpan.innerHTML = selectedFilter;
             button.textContent = currentFilter;
 
-            // Close dropdown
+            // Fermeture du menu déroulant
             dropDownContent.classList.remove('show');
             dropDownIcon.classList.remove('open');
             dropDown.setAttribute("aria-expanded", "false");
             dropDownContent.setAttribute("aria-hidden", "true");
             dropDown.focus();
 
-            // Sort gallery based on selected filter
+            // Tri de la galerie selon le filtre sélectionné
             let sortedGallery = [...gallery];
             switch (filterType) {
                 case "popularité":
@@ -88,13 +88,13 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
                     break;
             }
 
-            // Update display with sorted gallery
+            // Mise à jour de l'affichage avec la galerie triée
             updateDisplay(sortedGallery);
             handleLikes();
             displayLightbox(sortedGallery, photographer);
         });
 
-        // Handle keyboard navigation within dropdown options
+        // Gestion de la navigation au clavier dans les options du menu déroulant
         button.addEventListener("keydown", (e) => {
             const next = dropDownButtons[index + 1] || dropDownButtons[0];
             const prev = dropDownButtons[index - 1] || dropDownButtons[dropDownButtons.length - 1];
@@ -120,7 +120,7 @@ export const handleFilter = (gallery, updateDisplay, photographer) => {
         });
     });
 
-    // Close dropdown when clicking outside
+    // Fermeture du menu déroulant lors d'un clic à l'extérieur
     document.addEventListener("click", (event) => {
         if (!dropDown.contains(event.target) && !dropDownContent.contains(event.target)) {
             dropDownContent.classList.remove('show');

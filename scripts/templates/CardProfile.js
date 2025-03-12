@@ -1,14 +1,14 @@
 import Photograph from "../models/Photograph.js"
 
 /**
- * Component for rendering a photographer's profile card
+ * Composant pour l'affichage de la carte de profil d'un photographe
  * @class
  * @extends Photograph
  */
 class CardProfile extends Photograph {
     /**
-     * Creates a new CardProfile instance
-     * @param {Object} data - The photographer's data
+     * Crée une nouvelle instance de CardProfile
+     * @param {Object} data - Les données du photographe
      */
     constructor(data) {
         super(data)
@@ -17,8 +17,8 @@ class CardProfile extends Photograph {
     }
 
     /**
-     * Generates and returns the HTML for the photographer's profile card
-     * @returns {HTMLElement} The complete profile card element
+     * Génère et retourne le HTML pour la carte de profil du photographe
+     * @returns {HTMLElement} L'élément complet de la carte de profil
      */
     createCard() {
         const card = `

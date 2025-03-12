@@ -3,13 +3,13 @@ import Photograph from '../models/Photograph.js'
 import CardProfile from '../templates/CardProfile.js'
 
 /**
- * Handles the main page initialization and photographer data management
+ * Gère l'initialisation de la page principale et la gestion des données des photographes
  * @class
  */
 class Index {
     /**
-     * Creates a new Index instance
-     * Initializes the photographers array, API connection, and DOM elements
+     * Crée une nouvelle instance Index
+     * Initialise le tableau des photographes, la connexion API et les éléments du DOM
      */
     constructor() {
         this.photographers = []
@@ -20,9 +20,9 @@ class Index {
     }
 
     /**
-     * Fetches photographer data from local storage or API
+     * Récupère les données des photographes depuis le stockage local ou l'API
      * @async
-     * @returns {Array<Photograph>} Array of photographer instances
+     * @returns {Array<Photograph>} Tableau d'instances de photographes
      */
     async fetchData() {
         if (this.dataLocal) {
@@ -37,16 +37,16 @@ class Index {
     }
 
     /**
-     * Saves data to localStorage
-     * @param {Array<Object>} data - Data to be saved
-     * @param {string} item - localStorage key
+     * Sauvegarde les données dans le localStorage
+     * @param {Array<Object>} data - Données à sauvegarder
+     * @param {string} item - Clé du localStorage
      */
     saveData(data, item) {
         localStorage.setItem(item, JSON.stringify(data))
     }
 
     /**
-     * Displays photographer profiles on the page
+     * Affiche les profils des photographes sur la page
      * @async
      */
     async displayProfiles() {
@@ -57,7 +57,7 @@ class Index {
     }
 
     /**
-     * Initializes the application
+     * Initialise l'application
      * @async
      */
     async main() {
@@ -66,7 +66,7 @@ class Index {
     }
 }
 
-// Initialize the application
+// Initialise l'application
 const app = new Index()
 app.main()
 

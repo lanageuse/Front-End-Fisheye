@@ -1,36 +1,36 @@
 import Media from "../models/Media.js";
 
 /**
- * Represents an image media item
+ * Représente un élément média de type image
  * @class
  * @extends Media
  */
 class Image extends Media {
     /**
-     * Creates a new Image instance
-     * @param {Object} data - The image data
-     * @param {string} [data.image] - The path or URL to the image file
-     * @param {string} [data.date] - The date of the image
-     * @param {string} [data.id] - The image's unique identifier
-     * @param {number} [data.likes] - Number of likes for the image
-     * @param {string} [data.photographerId] - ID of the photographer who created the image
-     * @param {number} [data.price] - The price of the image
-     * @param {string} [data.title] - The title of the image
-     * @param {boolean} [data.isLiked] - Whether the image is liked by the current user
+     * Crée une nouvelle instance d'Image
+     * @param {Object} data - Les données de l'image
+     * @param {string} [data.image] - Le chemin ou l'URL vers le fichier image
+     * @param {string} [data.date] - La date de l'image
+     * @param {string} [data.id] - L'identifiant unique de l'image
+     * @param {number} [data.likes] - Nombre de likes pour l'image
+     * @param {string} [data.photographerId] - ID du photographe qui a créé l'image
+     * @param {number} [data.price] - Le prix de l'image
+     * @param {string} [data.title] - Le titre de l'image
+     * @param {boolean} [data.isLiked] - Indique si l'image est likée par l'utilisateur actuel
      */
     constructor(data) {
         super(data)
         this._image = data.image || 'Undefined'
     }
 
-    /** @returns {string} The path or URL to the image file */
+    /** @returns {string} Le chemin ou l'URL vers le fichier image */
     get image() { 
         return this._image 
     }
 
     /**
-     * Converts the Image instance to a plain JavaScript object
-     * @returns {Object} Plain object representation of the Image
+     * Convertit l'instance Image en un objet JavaScript simple
+     * @returns {Object} Représentation en objet simple de l'Image
      */
     toJSON() {
         return {

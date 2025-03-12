@@ -1,4 +1,4 @@
-// Import required modules
+// Import des modules requis
 import Api from '../api/Api.js'
 import Photograph from '../models/Photograph.js'
 import HeaderProfile from '../templates/HeaderProfile.js'
@@ -11,18 +11,18 @@ import { handleFilter } from '../utils/filter.js'
 import { displayLightbox } from '../utils/lightbox.js'
 import { videoHover } from '../utils/video.js'
 
-// Get photographer ID from URL parameters
+// Récupération de l'ID du photographe depuis les paramètres URL
 const params = new URLSearchParams(document.location.search);
 const photographId = params.get("id");
 
 /**
- * Controls the photographer's page functionality including profile display and media gallery
+ * Contrôle les fonctionnalités de la page du photographe, incluant l'affichage du profil et la galerie média
  * @class
  */
 class PhotographerPage {
     /**
-     * Creates a new PhotographerPage instance
-     * @param {string|number} id - The photographer's ID
+     * Crée une nouvelle instance de PhotographerPage
+     * @param {string|number} id - L'ID du photographe
      */
     constructor(id) {
         this.id = Number(id) || 'undefined'
@@ -36,14 +36,14 @@ class PhotographerPage {
     }
 
     /**
-     * Fetches and sets the photographer's profile data
+     * Récupère et définit les données du profil du photographe
      * @async
-     * @throws {Error} If ID is not a number
-     * @returns {Promise<Photograph>} The photographer's profile data
+     * @throws {Error} Si l'ID n'est pas un nombre
+     * @returns {Promise<Photograph>} Les données du profil du photographe
      */
     async getProfile() {
         if (typeof (this.id) !== 'number') {
-            throw new Error('ID must have a number')
+            throw new Error('L\'ID doit être un nombre')
         }
         const { photographers } = await this.api.get()
         const data = photographers.filter(profile => profile.id === this.id)
@@ -52,7 +52,7 @@ class PhotographerPage {
     }
 
     /**
-     * Renders the photographer's profile in the DOM
+     * Affiche le profil du photographe dans le DOM
      * @async
      */
     async displayProfile() {
@@ -62,10 +62,10 @@ class PhotographerPage {
     }
 
     /**
-     * Fetches and sets the photographer's media gallery
-     * Tries to load from localStorage first, falls back to API
+     * Récupère et définit la galerie média du photographe
+     * Essaie d'abord de charger depuis le localStorage, sinon utilise l'API
      * @async
-     * @returns {Promise<Array>} Array of media items
+     * @returns {Promise<Array>} Tableau des éléments média
      */
     async getGallery() {
         if (this.dataLocal) {
@@ -82,18 +82,18 @@ class PhotographerPage {
     }
 
     /**
-     * Saves gallery data to localStorage
-     * @param {string|number} item - Key for localStorage
-     * @param {Array} data - Gallery data to save
+     * Sauvegarde les données de la galerie dans le localStorage
+     * @param {string|number} item - Clé pour le localStorage
+     * @param {Array} data - Données de la galerie à sauvegarder
      */
     saveGallery(item, data){
         localStorage.setItem(item, JSON.stringify(data))
     }
 
     /**
-     * Renders the media gallery and widget in the DOM
+     * Affiche la galerie média et le widget dans le DOM
      * @async
-     * @param {Array} [sortedGallery=null] - Optional pre-sorted gallery array
+     * @param {Array} [sortedGallery=null] - Tableau de la galerie pré-triée optionnel
      */
     async displayGallery(sortedGallery = null) {
         const photograph = this.profile
@@ -104,26 +104,26 @@ class PhotographerPage {
     }
 
     /**
-     * Initializes the page by loading data and setting up event handlers
+     * Initialise la page en chargeant les données et en configurant les gestionnaires d'événements
      * @async
      */
     async main() {
-        // Load and display photographer profile
+        // Chargement et affichage du profil du photographe
         await this.getProfile()
         await this.displayProfile()
 
-        // Load and display media gallery
+        // Chargement et affichage de la galerie média
         await this.getGallery()
         await this.displayGallery().then(setTimeout(() => this.$wrapperWidget.classList.add('show'), 1000))
 
-        // Initialize likes functionality
+        // Initialisation de la fonctionnalité des likes
         await handleLikes()
 
-        // Set up UI interactions
+        // Configuration des interactions UI
         openCloseModal()
         contactForm(this.profile);
 
-        // Initialize filtering and media display features
+        // Initialisation du filtrage et des fonctionnalités d'affichage média
         handleFilter(this.gallery, (sortedGallery) => this.displayGallery(sortedGallery), this.profile)
 
         displayLightbox(this.gallery, this.profile)
@@ -131,6 +131,6 @@ class PhotographerPage {
     }
 }
 
-// Initialize the application
+// Initialisation de l'application
 const app = new PhotographerPage(photographId)
 app.main()

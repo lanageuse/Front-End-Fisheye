@@ -1,5 +1,5 @@
 /**
- * Manages likes functionality with event observers and storage management
+ * Gère la fonctionnalité des likes avec des observateurs d'événements et la gestion du stockage
  * @module likes
  */
 
@@ -11,27 +11,27 @@ const params = new URLSearchParams(document.location.search);
 const photographId = params.get("id");
 
 /**
- * Initialize event observers and subscribers
+ * Initialise les observateurs d'événements et les abonnés
  */
 const EventLikes = new EventObserver()
 const CounterLikes = new Counter()
 const EventStorage = new EventObserver()
 const LikeStorage = new AddToStorage()
 
-// Set up event subscriptions
+// Configuration des abonnements aux événements
 EventLikes.subscribe(CounterLikes)
 EventStorage.subscribe(LikeStorage)
 
 /**
- * Sets up like button functionality with click and keyboard handlers
+ * Configure la fonctionnalité des boutons like avec gestion des clics et du clavier
  * @async
  */
 export const handleLikes = async () => {
     const btnLikes = document.querySelectorAll('.handleLikes')
 
     /**
-     * Handles like/unlike action for a button
-     * @param {HTMLElement} btn - The like button element
+     * Gère l'action like/unlike pour un bouton
+     * @param {HTMLElement} btn - L'élément bouton like
      */
     const handleLike = (btn) => {
         const likeWrapper = btn.querySelector('.count')
@@ -54,7 +54,7 @@ export const handleLikes = async () => {
         likeWrapper.textContent = likeCount
     }
 
-    // Add click and keyboard event listeners to all like buttons
+    // Ajout des écouteurs d'événements clic et clavier à tous les boutons like
     btnLikes.forEach((btn) => {
         btn.addEventListener("click", () => {
             handleLike(btn)
