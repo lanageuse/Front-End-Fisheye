@@ -87,10 +87,12 @@ const ErrorMessage = (errorMessage, field) => {
         showMessage.setAttribute('data-error', errorMessage);
         showMessage.setAttribute('data-error-visible', true);
         InputError.setAttribute('aria-invalid', true);
+        showMessage.setAttribute("role", "alert");
     } else {
         showMessage.removeAttribute('data-error');
         showMessage.removeAttribute('data-error-visible');
         InputError.setAttribute('aria-invalid', false);
+        showMessage.removeAttribute("role");
     }
 };
 
