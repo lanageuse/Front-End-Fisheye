@@ -1,21 +1,22 @@
+
 /**
- * Handles API requests to fetch data from JSON endpoints
+ * Gère les requêtes API pour récupérer des données depuis des endpoints JSON
  * @class
  */
 class Api {
     /**
-     * Creates a new Api instance
-     * @param {string} url - The URL endpoint to fetch data from
+     * Crée une nouvelle instance Api
+     * @param {string} url - L'URL de l'endpoint pour récupérer les données
      */
     constructor(url) {
         this._url = url
     }
 
     /**
-     * Fetches and parses JSON data from the API endpoint
+     * Récupère et analyse les données JSON depuis l'endpoint API
      * @async
-     * @returns {Promise<Object>} The parsed JSON response
-     * @throws {Error} If the HTTP response is not OK or if data format is invalid
+     * @returns {Promise<Object>} La réponse JSON analysée
+     * @throws {Error} Si la réponse HTTP n'est pas OK ou si le format des données est invalide
      */
     async get() {
         try {

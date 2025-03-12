@@ -1,20 +1,20 @@
 /**
- * Manages likes data updates in localStorage
+ * Gère les mises à jour des données de likes dans le localStorage
  * @class
  */
 class AddToStorage {
     /**
-     * Updates the like status and count for a specific media item
-     * @param {string} action - The action to perform ('ADD' or 'REMOVE')
-     * @param {Object} data - The data object containing media and photographer information
-     * @param {string|number} data.photograph_id - ID of the photographer
-     * @param {string|number} data.media_id - ID of the media item
-     * @throws {Error} If media doesn't exist in localStorage
+     * Met à jour le statut et le nombre de likes pour un média spécifique
+     * @param {string} action - L'action à effectuer ('ADD' ou 'REMOVE')
+     * @param {Object} data - L'objet contenant les informations du média et du photographe
+     * @param {string|number} data.photograph_id - ID du photographe
+     * @param {string|number} data.media_id - ID du média
+     * @throws {Error} Si le média n'existe pas dans le localStorage
      */
     update(action, data) {
         const storage = JSON.parse(localStorage.getItem(`${data.photograph_id}`))
         if (!(storage)) {
-            throw new Error(`media ${data.media_id} doesn't exist in localstorage`)
+            throw new Error(`Le média ${data.media_id} n'existe pas dans le localStorage`)
         }
 
         let updateStorage = storage.map((element) => {

@@ -1,12 +1,12 @@
 /**
- * Component for rendering a media gallery and associated widgets
+ * Composant pour l'affichage d'une galerie média et ses widgets associés
  * @class
  */
 class Gallery {
     /**
-     * Creates a new Gallery instance
-     * @param {Array} medias - Array of media items to display
-     * @param {Object} photographer - Photographer data object
+     * Crée une nouvelle instance de Gallery
+     * @param {Array} medias - Tableau des éléments média à afficher
+     * @param {Object} photographer - Objet contenant les données du photographe
      */
     constructor(medias, photographer) {
         this.photographer = photographer
@@ -14,10 +14,10 @@ class Gallery {
     }
 
     /**
-     * Formats photographer name for use in file paths
+     * Formate le nom du photographe pour l'utilisation dans les chemins de fichiers
      * @static
-     * @param {string} name - Photographer's full name
-     * @returns {string} Formatted name for folder structure
+     * @param {string} name - Nom complet du photographe
+     * @returns {string} Nom formaté pour la structure des dossiers
      */
     static getFolderName(name) {
         return name
@@ -29,8 +29,8 @@ class Gallery {
     }
 
     /**
-     * Generates HTML for the media gallery
-     * @returns {string} HTML string for the gallery section
+     * Génère le HTML pour la galerie média
+     * @returns {string} Chaîne HTML pour la section galerie
      */
     createGallery() {
         const render = `
@@ -65,8 +65,8 @@ class Gallery {
     }
 
     /**
-     * Calculates total likes across all media items
-     * @returns {number} Total number of likes
+     * Calcule le nombre total de likes pour tous les médias
+     * @returns {number} Nombre total de likes
      */
     getCountLikes() {
         const result = this.medias.reduce((acc, media) => acc + media.likes, 0)
@@ -74,8 +74,8 @@ class Gallery {
     }
 
     /**
-     * Generates HTML for the likes and price widget
-     * @returns {string} HTML string for the widget
+     * Génère le HTML pour le widget de likes et de prix
+     * @returns {string} Chaîne HTML pour le widget
      */
     createWidget() {
         const widget = `

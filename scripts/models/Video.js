@@ -1,49 +1,59 @@
-import Media from "../models/Media.js";
-
 /**
- * Represents a video media item in the application
+ * Représente les informations du profil d'un Photographe
  * @class
- * @extends Media
  */
-class Video extends Media {
+class Photograph {
     /**
-     * Creates a new Video instance
-     * @param {Object} data - The video data
-     * @param {string} [data.video] - The path or URL to the video file
-     * @param {string} [data.date] - The date of the video
-     * @param {string} [data.id] - The video's unique identifier
-     * @param {number} [data.likes] - Number of likes for the video
-     * @param {string} [data.photographerId] - ID of the photographer who created the video
-     * @param {number} [data.price] - The price of the video
-     * @param {string} [data.title] - The title of the video
-     * @param {boolean} [data.isLiked] - Whether the video is liked by the current user
+     * Crée une nouvelle instance de Photograph
+     * @param {Object} params - Les paramètres du photographe
+     * @param {string} [params.name] - Le nom du photographe
+     * @param {string} [params.id] - L'identifiant unique du photographe
+     * @param {string} [params.city] - La ville du photographe
+     * @param {string} [params.country] - Le pays du photographe
+     * @param {string} [params.tagline] - La signature ou le slogan du photographe
+     * @param {number} [params.price] - Le tarif du photographe
+     * @param {string} [params.portrait] - URL ou chemin vers l'image de portrait du photographe
      */
-    constructor(data) {
-        super(data)
-        this._video = data.video || 'Undefined'
+    constructor({ name, id, city, country, tagline, price, portrait }) {
+        this._name = name || 'undefined'
+        this._id = id || 'undefined'
+        this._city = city || 'undefined'
+        this._country = country || 'undefined'
+        this._tagline = tagline || 'undefined'
+        this._price = price || 'undefined'
+        this._portrait = portrait || 'undefined'
     }
 
-    /** @returns {string} The path or URL to the video file */
-    get video() { 
-        return this._video 
-    }
+    /** @returns {string} Le nom du photographe */
+    get name() { return this._name }
+    /** @returns {string} L'identifiant unique du photographe */
+    get id() { return this._id }
+    /** @returns {string} La ville du photographe */
+    get city() { return this._city }
+    /** @returns {string} Le pays du photographe */
+    get country() { return this._country }
+    /** @returns {string} La signature ou le slogan du photographe */
+    get tagline() { return this._tagline }
+    /** @returns {number} Le tarif du photographe */
+    get price() { return this._price }
+    /** @returns {string} URL ou chemin vers l'image de portrait du photographe */
+    get portrait() { return this._portrait }
 
     /**
-     * Converts the Video instance to a plain JavaScript object
-     * @returns {Object} Plain object representation of the Video
+     * Convertit l'instance Photograph en un objet JavaScript simple
+     * @returns {Object} Représentation en objet simple du Photograph
      */
     toJSON() {
-        return {
-            date: this._date,
-            id: this._id,
-            likes: this._likes,
-            photographerId: this._photographerId,
-            price: this._price,
-            title: this._title,
-            isLiked: false,
-            video: this._video
-        }
+       return {
+        "name" : this._name,
+        "id" : this._id,
+        "city" : this._city,
+        "country" : this._country,
+        "tagline" : this._tagline,
+        "price" : this._price,
+        "portrait" : this._portrait
+       }
     }
 }
 
-export default Video
+export default Photograph

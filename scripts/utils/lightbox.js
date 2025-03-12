@@ -1,14 +1,14 @@
 /**
- * Implements an accessible lightbox gallery component
+ * Implémente un composant de galerie lightbox accessible
  * @module lightbox
  */
 
 import Gallery from "../templates/Gallery.js"
 
 /**
- * Sets up and manages lightbox functionality with keyboard navigation and accessibility
- * @param {Array} medias - Array of media items to display in lightbox
- * @param {Object} photographer - Photographer data object for file path construction
+ * Configure et gère la fonctionnalité lightbox avec navigation au clavier et accessibilité
+ * @param {Array} medias - Tableau des éléments média à afficher dans la lightbox
+ * @param {Object} photographer - Objet contenant les données du photographe pour la construction des chemins de fichiers
  */
 export const displayLightbox = (medias, photographer) => {
     const thumbs = document.querySelectorAll('article figure');
@@ -22,8 +22,8 @@ export const displayLightbox = (medias, photographer) => {
     let currentIndex = 0;
 
     /**
-     * Opens lightbox and displays selected media
-     * @param {HTMLElement} thumb - Thumbnail element that triggered the lightbox
+     * Ouvre la lightbox et affiche le média sélectionné
+     * @param {HTMLElement} thumb - Élément vignette qui a déclenché la lightbox
      */
     const openLightBox = (thumb) => {
         currentIndex = medias.findIndex(media => media.id === Number(thumb.dataset.id));
@@ -35,7 +35,7 @@ export const displayLightbox = (medias, photographer) => {
     };
 
     /**
-     * Closes lightbox and restores main content visibility
+     * Ferme la lightbox et restaure la visibilité du contenu principal
      */
     const closeLightbox = () => {
         lightboxOverlay.style.display = 'none';
@@ -45,7 +45,7 @@ export const displayLightbox = (medias, photographer) => {
     };
 
     /**
-     * Renders current media item in lightbox
+     * Affiche l'élément média actuel dans la lightbox
      */
     const displayMedia = () => {
         const currentMedia = medias[currentIndex];
@@ -60,7 +60,7 @@ export const displayLightbox = (medias, photographer) => {
     };
 
     /**
-     * Displays next media item in gallery
+     * Affiche l'élément média suivant dans la galerie
      */
     const nextMedia = () => {
         currentIndex = (currentIndex + 1) % medias.length;
@@ -68,19 +68,19 @@ export const displayLightbox = (medias, photographer) => {
     };
 
     /**
-     * Displays previous media item in gallery
+     * Affiche l'élément média précédent dans la galerie
      */
     const prevMedia = () => {
         currentIndex = (currentIndex - 1 + medias.length) % medias.length;
         displayMedia();
     };
 
-    // Navigation button event listeners
+    // Écouteurs d'événements pour les boutons de navigation
     btnNext.addEventListener("click", nextMedia);
     btnPrev.addEventListener("click", prevMedia);
     btnClose.addEventListener("click", closeLightbox);
 
-    // Thumbnail click and keyboard event listeners
+    // Écouteurs d'événements pour les clics et touches sur les vignettes
     thumbs.forEach(thumb => {
         thumb.addEventListener("click", () => openLightBox(thumb));
         thumb.addEventListener("keydown", (e) => {
@@ -88,7 +88,7 @@ export const displayLightbox = (medias, photographer) => {
         });
     });
 
-    // Global keyboard navigation
+    // Navigation globale au clavier
     document.addEventListener('keydown', (e) => {
         if (lightboxOverlay.style.display === 'flex') {
             switch (e.key) {

@@ -1,18 +1,18 @@
 /**
- * Represents a Photographer's profile information
+ * Représente les informations du profil d'un Photographe
  * @class
  */
 class Photograph {
     /**
-     * Creates a new Photograph instance
-     * @param {Object} params - The photographer parameters
-     * @param {string} [params.name] - The photographer's name
-     * @param {string} [params.id] - The photographer's unique identifier
-     * @param {string} [params.city] - The photographer's city
-     * @param {string} [params.country] - The photographer's country
-     * @param {string} [params.tagline] - The photographer's tagline or slogan
-     * @param {number} [params.price] - The photographer's price rate
-     * @param {string} [params.portrait] - URL or path to the photographer's portrait image
+     * Crée une nouvelle instance de Photograph
+     * @param {Object} params - Les paramètres du photographe
+     * @param {string} [params.name] - Le nom du photographe
+     * @param {string} [params.id] - L'identifiant unique du photographe
+     * @param {string} [params.city] - La ville du photographe
+     * @param {string} [params.country] - Le pays du photographe
+     * @param {string} [params.tagline] - La signature ou le slogan du photographe
+     * @param {number} [params.price] - Le tarif du photographe
+     * @param {string} [params.portrait] - URL ou chemin vers l'image de portrait du photographe
      */
     constructor({ name, id, city, country, tagline, price, portrait }) {
         this._name = name || 'undefined'
@@ -24,24 +24,24 @@ class Photograph {
         this._portrait = portrait || 'undefined'
     }
 
-    /** @returns {string} The photographer's name */
+    /** @returns {string} Le nom du photographe */
     get name() { return this._name }
-    /** @returns {string} The photographer's unique identifier */
+    /** @returns {string} L'identifiant unique du photographe */
     get id() { return this._id }
-    /** @returns {string} The photographer's city */
+    /** @returns {string} La ville du photographe */
     get city() { return this._city }
-    /** @returns {string} The photographer's country */
+    /** @returns {string} Le pays du photographe */
     get country() { return this._country }
-    /** @returns {string} The photographer's tagline or slogan */
+    /** @returns {string} La signature ou le slogan du photographe */
     get tagline() { return this._tagline }
-    /** @returns {number} The photographer's price rate */
+    /** @returns {number} Le tarif du photographe */
     get price() { return this._price }
-    /** @returns {string} URL or path to the photographer's portrait image */
+    /** @returns {string} URL ou chemin vers l'image de portrait du photographe */
     get portrait() { return this._portrait }
 
     /**
-     * Converts the Photograph instance to a plain JavaScript object
-     * @returns {Object} Plain object representation of the Photograph
+     * Convertit l'instance Photograph en un objet JavaScript simple
+     * @returns {Object} Représentation en objet simple du Photograph
      */
     toJSON() {
        return {

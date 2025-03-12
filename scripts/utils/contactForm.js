@@ -1,6 +1,6 @@
 /**
- * Contact form validation and submission handler
- * Implements form validation rules and manages form submission process
+ * Gestionnaire de validation et de soumission du formulaire de contact
+ * Implémente les règles de validation et gère le processus de soumission du formulaire
  */
 
 import { FieldValidator, RequiredRule, EmailRule, MinLengthRule } from "./formValidator.js";
@@ -8,7 +8,7 @@ import { FieldValidator, RequiredRule, EmailRule, MinLengthRule } from "./formVa
 const form = document.getElementById('submitForm');
 
 /**
- * Form field validators configuration
+ * Configuration des validateurs des champs du formulaire
  * @type {FieldValidator[]}
  */
 const validators = [
@@ -27,7 +27,7 @@ const validators = [
 ];
 
 /**
- * Sets up real-time validation for form input fields
+ * Configure la validation en temps réel pour les champs de saisie du formulaire
  */
 const inputForm = () => 
     form.querySelectorAll("input").forEach((field) => {
@@ -41,8 +41,8 @@ const inputForm = () =>
 });
 
 /**
- * Handles form submission and validation
- * Prevents submission if validation fails
+ * Gère la soumission et la validation du formulaire
+ * Empêche la soumission si la validation échoue
  */
 const submitForm = () => form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -67,8 +67,8 @@ const submitForm = () => form.addEventListener("submit", (e) => {
 });
 
 /**
- * Updates the form title with photographer's name
- * @param {Object} photographer - The photographer object
+ * Met à jour le titre du formulaire avec le nom du photographe
+ * @param {Object} photographer - L'objet photographe
  */
 const updateTitleForm = (photographer) => {
     const $title = document.getElementById("modalTitle")
@@ -76,9 +76,9 @@ const updateTitleForm = (photographer) => {
 }
 
 /**
- * Manages error message display for form fields
- * @param {string|null} errorMessage - Error message to display
- * @param {string} field - Field name to show error for
+ * Gère l'affichage des messages d'erreur pour les champs du formulaire
+ * @param {string|null} errorMessage - Message d'erreur à afficher
+ * @param {string} field - Nom du champ pour lequel afficher l'erreur
  */
 const ErrorMessage = (errorMessage, field) => {
     const showMessage = document.querySelector(`[name="${field}"]`).parentElement;
@@ -95,8 +95,8 @@ const ErrorMessage = (errorMessage, field) => {
 };
 
 /**
- * Displays success message and handles form reset
- * @param {HTMLFormElement} form - The form element to reset
+ * Affiche le message de succès et gère la réinitialisation du formulaire
+ * @param {HTMLFormElement} form - L'élément formulaire à réinitialiser
  */
 const showSucessMessage = (form) => {
     const successMessage = document.querySelector('.form-success');
@@ -111,8 +111,8 @@ const showSucessMessage = (form) => {
 };
 
 /**
- * Initializes the contact form functionality
- * @param {Object} photographer - The photographer object
+ * Initialise les fonctionnalités du formulaire de contact
+ * @param {Object} photographer - L'objet photographe
  */
 export const contactForm = (photographer) => {
     submitForm()

@@ -1,19 +1,19 @@
 /**
- * Manages video preview functionality on hover
- * Implements auto-preview and cleanup for video elements
+ * Gère la fonctionnalité de prévisualisation vidéo au survol
+ * Implémente la prévisualisation automatique et le nettoyage des éléments vidéo
  * @module videoHover
  */
 
 /**
- * Sets up video preview functionality with hover interactions
- * Automatically starts/stops preview with mouse events
+ * Configure la fonctionnalité de prévisualisation vidéo avec interactions au survol
+ * Démarre/arrête automatiquement la prévisualisation avec les événements de souris
  */
 export const videoHover = () => {
     const video = document.querySelector('#main .gallery-container .gallery video')
     let previewTimeout = null;
 
     /**
-     * Starts video preview with specific playback settings
+     * Démarre la prévisualisation vidéo avec des paramètres de lecture spécifiques
      */
     const startPreview = () => {
         video.muted = true;
@@ -23,7 +23,7 @@ export const videoHover = () => {
     }
 
     /**
-     * Stops video preview and resets playback settings
+     * Arrête la prévisualisation vidéo et réinitialise les paramètres de lecture
      */
     const stopPreview = () => {
         video.currentTime = 0;
@@ -31,13 +31,13 @@ export const videoHover = () => {
         video.pause();
     }
 
-    // Start preview on mouse enter with 8-second timeout
+    // Démarre la prévisualisation au survol de la souris avec un délai de 8 secondes
     video.addEventListener("mouseenter", () => {
         startPreview();
         previewTimeout = setTimeout(stopPreview, 8000);
     })
 
-    // Stop preview and clear timeout on mouse leave
+    // Arrête la prévisualisation et efface le délai quand la souris quitte la zone
     video.addEventListener("mouseleave", () => {
         clearTimeout(previewTimeout);
         previewTimeout = null;

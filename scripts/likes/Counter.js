@@ -1,19 +1,19 @@
 /**
- * Manages the total likes counter in the widget
+ * Gère le compteur total de likes dans le widget
  * @class
  */
 class Counter {
     /**
-     * Creates a new Counter instance starting at 0
+     * Crée une nouvelle instance de Counter commençant à 0
      */
     constructor() {
         this._count = 0
     }
     
     /**
-     * Updates the total likes count in the widget
-     * @param {string} action - The action to perform ('INC' or 'DEC')
-     * @throws {Error} If action is not recognized
+     * Met à jour le nombre total de likes dans le widget
+     * @param {string} action - L'action à effectuer ('INC' ou 'DEC')
+     * @throws {Error} Si l'action n'est pas reconnue
      */
     update(action) {
         const wrapper = document.querySelector('.widget .total-likes')
@@ -25,7 +25,7 @@ class Counter {
         } else if (action === 'DEC') {
             this._count -= 1
         } else {
-            throw "Unknown action"
+            throw "Action inconnue"
         }
 
         wrapper.innerHTML = this._count

@@ -1,29 +1,29 @@
 import Photograph from "../models/Photograph.js"
 /**
- * Component for rendering a photographer's profile header
+ * Composant pour l'affichage de l'en-tête du profil d'un photographe
  * @class
  * @extends Photograph
  */
 class HeaderProfile extends Photograph {
     /**
-     * Creates a new HeaderProfile instance
-     * @param {Object} data - The photographer's data
+     * Crée une nouvelle instance de HeaderProfile
+     * @param {Object} data - Les données du photographe
      */
     constructor(data) {
         super(data)
     }
 
     /**
-     * Updates the page title with photographer's name
-     * @returns {string} The formatted page title
+     * Met à jour le titre de la page avec le nom du photographe
+     * @returns {string} Le titre formaté de la page
      */
     updateTitle() {
         return `Fisheye - Découvrez les créations de ${this.name}`
     }
 
     /**
-     * Generates HTML for the photographer's header section
-     * @returns {string} HTML string for the header section
+     * Génère le HTML pour la section d'en-tête du photographe
+     * @returns {string} Chaîne HTML pour la section d'en-tête
      */
     createCard() {
         const header = `
