@@ -50,7 +50,7 @@ export const displayLightbox = (medias, photographer) => {
     const displayMedia = () => {
         const currentMedia = medias[currentIndex];
         const template = currentMedia.image ? `
-            <img src="./assets/images/${Gallery.getFolderName(photographer.name)}/${currentMedia.image}" alt="${currentMedia.alt}">
+            <img src="./assets/images/${Gallery.getFolderName(photographer.name)}/${currentMedia.image}" alt="${currentMedia.title}">
         ` : `
             <video controls aria-label="${currentMedia.title}">
                 <source src="./assets/images/${Gallery.getFolderName(photographer.name)}/${currentMedia.video}" type="video/mp4">
