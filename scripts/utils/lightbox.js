@@ -56,7 +56,7 @@ export const displayLightbox = (medias, photographer) => {
                 <source src="./assets/images/${Gallery.getFolderName(photographer.name)}/${currentMedia.video}" type="video/mp4">
             </video>
         `;
-        mediaWrapper.innerHTML = template + `<figcaption tabindex="0">${currentMedia.title}</figcaption>`;
+        mediaWrapper.innerHTML = template + `<figcaption tabindex="0" aria-label="${currentMedia.title}" >${currentMedia.title}</figcaption>`;
     };
 
     /**
