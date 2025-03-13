@@ -57,6 +57,7 @@ export const displayLightbox = (medias, photographer) => {
             </video>
         `;
         mediaWrapper.innerHTML = template + `<figcaption tabindex="0" aria-label="${currentMedia.title}" >${currentMedia.title}</figcaption>`;
+        mediaWrapper.setAttribute("aria-label", `Vous êtes actuellement sur ${currentMedia.image ? "l'image" : "la vidéo"} ${currentMedia.title}` )
     };
 
     /**
