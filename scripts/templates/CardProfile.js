@@ -24,8 +24,8 @@ class CardProfile extends Photograph {
         const card = `
             <a href="photographer.html?id=${this.id}" aria-label="Voir le profil du photographe ${this.name}">
                 <img src="././assets/photographers/${this.portrait}" 
-                     class="profile__thumb" 
-                     alt="">
+                     class="profile__thumb"
+                     alt="${this.name}">
                 <h2 class="profile__name">${this.name}</h2>
                 <div role="region" aria-labelledby="profileHeader" tabindex="0">
                 <h2 id="profileHeader" class="sr-only">Informations sur le photographe</h2>
