@@ -56,12 +56,15 @@ export const handleLikes = async () => {
 
     // Ajout des écouteurs d'événements clic et clavier à tous les boutons like
     btnLikes.forEach((btn) => {
+        btn.setAttribute('aria-label', btn.classList.contains('liked') ? 'Cliquer sur entrée pour supprimer votre like' : 'Cliquer sur entrée pour ajouter un like'); // Met à jour aria-label
         btn.addEventListener("click", () => {
             handleLike(btn)
+            btn.setAttribute('aria-label', btn.classList.contains('liked') ? 'Cliquer sur entrée pour supprimer votre like' : 'Cliquer sur entrée pour ajouter un like'); // Met à jour aria-label
         })
         btn.addEventListener("keydown", (e) => {
             if (e.key === 'Enter') {
                 handleLike(btn)
+                btn.setAttribute('aria-label', btn.classList.contains('liked') ? 'Cliquer sur entrée pour supprimer votre like' : 'Cliquer sur entrée pour ajouter un like'); // Met à jour aria-label
             }
         })
     })

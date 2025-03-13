@@ -51,8 +51,8 @@ class Gallery {
                 ${renderMedia}
                 <div class="thumb__details">
                     <h2  tabindex="0">${media.title}</h2>
-                    <div class="likes handleLikes ${media.isLiked ? 'liked' : ''}" role="button" data-id="${media.id}"  tabindex="0">
-                    <span class="count">${media.likes}</span><i class="fi-hearth" aria-hidden="true"></i>
+                    <div class="likes handleLikes ${media.isLiked ? 'liked' : ''}" role="button" aria-label="Cliquer sur entrée pour supprimer votre like" data-id="${media.id}"  tabindex="0">
+                    <span class="count" aria-label="${media.likes} likes">${media.likes}</span><i class="fi-hearth" aria-hidden="true"></i>
                     </div>
                 </div>
             </article>
