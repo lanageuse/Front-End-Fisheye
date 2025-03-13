@@ -30,7 +30,6 @@
         transition: transform ease-in-out 0.3s;
         &.open {
           position: relative;
-          top: rem(5);
           transform: rotate(180deg);
         }
       }
