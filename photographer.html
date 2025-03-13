@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <link href="css/main.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet">
   <title>Fisheye - photographe </title>
 </head>
+
 <body>
   <header role="banner" aria-label="En-tête du site avec le logo et le titre">
     <a href="/" title="Lien vers la page d'accueil">
       <img src="assets/images/logo.png" class="logo" alt="Lien vers la page d'accueil" />
-    </a>  
+    </a>
   </header>
-   
-  <main id="main" role="main">
+
+  <main id="main" role="main"  aria-label="Contenu principal de la page">
     <section class="photograph-header">
     </section>
-     <!-- widget -->
-     <aside class="widget" role="complementary" aria-label="Informations sur le photographe"></aside>
-     <!-- filter -->
+    <!-- widget -->
+    <aside class="widget" role="complementary" aria-label="Informations sur le photographe"></aside>
+    <!-- filter -->
     <div class="filter">
-      <div class="filter__title" tabindex="0">Trier par</div>  
+      <div class="filter__title" tabindex="0" aria-label="Trier par">Trier par</div>
       <div class="filter__dropdown">
-        <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownMenu" id="dropdownButton">
+        <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownMenu"
+          id="dropdownButton">
           <span>Popularité</span> <i class="fi-chevron-down" aria-hidden="true"></i>
         </button>
         <div id="dropdownMenu" class="dropdown-content" aria-hidden="true" role="menu">
@@ -69,11 +74,14 @@
   <!-- lightbox -->
   <!-- Lightbox -->
   <div class="lightbox-overlay" aria-modal="true" role="dialog">
-    <div class="lightbox" aria-label="Media closeup view" tabindex="0">
-      <figure class="lightbox__media" role="media" aria-label="Current Media" tabindex="0"></figure>
-      <button class="lightbox__btn_next" aria-label="media suivant"><i class="fi-chevron-right" aria-hidden="true"></i></button>
-      <button class="lightbox__btn_previous" aria-label="media précédent"><i class="fi-chevron-left" aria-hidden="true"></i></button>
-      <button class="lightbox__btn_close btn_close" aria-label="Fermer la modal"><img src="assets/icons/close-lightbox.svg" alt="Fermer la lightbox" class="close_modal" /></button>
+    <div class="lightbox" aria-label="Vue agrandie du média" tabindex="0">
+      <figure class="lightbox__media" role="media" aria-label="Media actif" tabindex="0"></figure>
+      <button class="lightbox__btn_next" aria-label="media suivant"><i class="fi-chevron-right"
+          aria-hidden="true"></i></button>
+      <button class="lightbox__btn_previous" aria-label="media précédent"><i class="fi-chevron-left"
+          aria-hidden="true"></i></button>
+      <button class="lightbox__btn_close btn_close" aria-label="Fermer la modal"><img
+          src="assets/icons/close-lightbox.svg" alt="Fermer la modal" class="close_modal" /></button>
     </div>
   </div>
 
