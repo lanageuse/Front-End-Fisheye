@@ -41,7 +41,7 @@ class Gallery {
               <img src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/thumbs/${media.image}" alt="${media.title}">
             </figure>`
                 :
-                ` <figure class="thumb__video" data-id="${media.id}" tabindex="0" role="link" aria-label="Ouvrir l'image">
+                ` <figure class="thumb__video" data-id="${media.id}" tabindex="0" role="link" aria-label="Ouvrir l'image ${media.title}">
                     <video>
                     <source src="./assets/images/${Gallery.getFolderName(this.photographer.name)}/${media.video}" type="video/mp4" />
                     </video>
