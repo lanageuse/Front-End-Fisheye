@@ -27,10 +27,13 @@ class CardProfile extends Photograph {
                      class="profile__thumb" 
                      alt="">
                 <h2 class="profile__name">${this.name}</h2>
+                <div role="region" aria-labelledby="profileHeader" tabindex="0">
+                <h2 id="profileHeader" class="sr-only">Informations sur le photographe</h2>
+                <p class="profile__location">${this.city}, ${this.country}</p>
+                <p class="profile__description">${this.tagline}</p>
+                <p class="profile__dailyRate">${this.price}€/jour</p>
+                </div>
             </a>
-            <p class="profile__location">${this.city}, ${this.country}</p>
-            <p class="profile__description">${this.tagline}</p>
-            <p class="profile__dailyRate">${this.price}€/jour</p>
         `
         this.$wrapper.innerHTML = card
         return this.$wrapper
